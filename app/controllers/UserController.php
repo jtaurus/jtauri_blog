@@ -148,6 +148,7 @@ class UserController extends BaseController {
 			$data["posts"][$counter]["id"] = $onePost->id;
 			$data["posts"][$counter]["title"] = $onePost->title;
 			$data["posts"][$counter]["body"] = $onePost->body;
+			$data["posts"][$counter]["post_date"] = $onePost->created_at;
 			$counter += 1;
 		}
 		$counter = 0;
