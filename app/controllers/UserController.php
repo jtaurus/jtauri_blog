@@ -150,6 +150,14 @@ class UserController extends BaseController {
 			$data["posts"][$counter]["body"] = $onePost->body;
 			$counter += 1;
 		}
+		$counter = 0;
+		foreach($userCommentsAll as $oneComment){
+			$commentedPostReference = $oneComment->post()->get();
+			$data["comments"][$counter]["body"] = $oneComment->body_comment;
+			$data["comments"][$counter]["commented_post_id"] = $commentedPostReference[0]->id;
+			$data["comments"][$counter]["commented_post_title"] = $commentedPostReference[0]->title;
+			$counter += 1;
+		}
 		Return View::make('view_user_profile')->with('data', $data);
 	}
 

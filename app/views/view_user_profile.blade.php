@@ -39,8 +39,15 @@ E-mail: {{{$data["email"]}}}<br />
 Registration date: {{{$data["registration_date"]}}}<br />
 <h1>Latest posts:</h1><br />
 @foreach($data["posts"] as $onePost)
-	<center><a href="/simple_blog/public/article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a> <br />
+	<center><h3><a href="/simple_blog/public/article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a></h3> <br />
 	{{{$onePost["body"]}}} <br /></center>
 @endforeach
+<h1>Latest comments:</h1><br />
+	<center>
+@foreach($data["comments"] as $oneComment)
+	<center><h3><a href="/simple_blog/public/article/view/{{{$oneComment["commented_post_id"]}}}">{{{$oneComment["commented_post_title"]}}}</a></h3> <br />
+		<p>{{{$oneComment["body"]}}}</p>
+@endforeach
+	</center>
 </body>
 </html>
