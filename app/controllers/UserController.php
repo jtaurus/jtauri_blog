@@ -90,6 +90,7 @@ class UserController extends BaseController {
 			$postAuthor = $oneComment->user()->get();
 			$moreData = $oneComment;
 			$moreData["author"] = $postAuthor[0]["username"];
+			$moreData["author_id"] = $postAuthor[0]["id"];
 			$data["detailed_comments"][] = $moreData;
 		}
 		// if no post found with given id, make a 404 page:
