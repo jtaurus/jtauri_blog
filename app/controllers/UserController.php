@@ -134,4 +134,12 @@ class UserController extends BaseController {
 		Return View::make('index_page')->with('data', $postsArray);
 	}
 
+	public function view_user_profile($id){
+		$userReference = User::findOrFail($id);
+		$data["username"] = $userReference->username;
+		$data["email"] = $userReference->email;
+		$data["registration_date"] = $userReference->created_at;
+		Return View::make('view_user_profile')->with('data', $data);
+	}
+
 }

@@ -28,6 +28,10 @@ Route::post('/user/create', 'UserController@register_user');
 
 Route::get('/user/welcome_page', 'UserController@welcome_page');
 
+// View user profile:
+
+Route::get('/user/{id}/view_profile', ['uses' => 'UserController@view_user_profile']);
+
 // Posting articles:
 
 Route::get('/article/new', 'UserController@article_posting_page');
