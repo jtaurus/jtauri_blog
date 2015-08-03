@@ -133,7 +133,10 @@ class UserController extends BaseController {
 			$postsArray[$counter]["author_id"] = $userReference[0]->id;
 			$counter += 1;
 		}
-		Return View::make('index_page')->with('data', $postsArray);
+		// pass whether the user is logged in or not:
+		$data["isLoggedIn"] = Auth::check();
+		$data["posts"] = $postsArray;
+		Return View::make('index_page')->with('data', $data);
 	}
 
 	public function view_user_profile($id){
