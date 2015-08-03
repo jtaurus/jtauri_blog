@@ -37,6 +37,7 @@
 <center>
 	@foreach($data as $onePost)
 		<p><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a></p>
+		<p>by: {{{$onePost["author"]}}}</p>
 		<p>{{{$onePost["body"]}}}</p>
 	@endforeach
 </center>
