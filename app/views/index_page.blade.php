@@ -34,6 +34,7 @@
 	</style>
 </head>
 <body>
+	<div align="right"><a href="./user/login">Login</a> | <a href="./user/create">Create account</a></div>
 <center>
 	@foreach($data as $onePost)
 		<p><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a></p>
