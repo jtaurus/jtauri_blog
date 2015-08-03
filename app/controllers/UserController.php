@@ -123,4 +123,9 @@ class UserController extends BaseController {
 		}
 	}
 
+	public function index_page(){
+		$postsArray = Post::all();
+		Return View::make('index_page')->with('data', $postsArray);
+	}
+
 }

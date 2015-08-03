@@ -34,7 +34,11 @@
 	</style>
 </head>
 <body>
-<center>This is an index page.
+<center>
+	@foreach($data as $onePost)
+		<p><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a></p>
+		<p>{{{$onePost["body"]}}}</p>
+	@endforeach
 </center>
 </body>
 </html>

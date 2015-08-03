@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index_page');
-});
+Route::get('/', 'UserController@index_page');
 
 // Logins:
 
