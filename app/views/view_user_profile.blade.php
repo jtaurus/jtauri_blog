@@ -45,7 +45,7 @@ Registration date: {{{$data["registration_date"]}}}<br />
 <h1>Latest comments:</h1><br />
 	<center>
 @foreach($data["comments"] as $oneComment)
-	<center><h3><a href="/simple_blog/public/article/view/{{{$oneComment["commented_post_id"]}}}">{{{$oneComment["commented_post_title"]}}}</a></h3> <br />
+	<center><h3><a href="/simple_blog/public/article/view/{{{$oneComment["commented_post_id"]}}}">{{{$oneComment["commented_post_title"]}}}</a></h3> on {{{$oneComment["comment_post_date"]}}} <br />
 		<p>{{{$oneComment["body"]}}}</p>
 @endforeach
 	</center>

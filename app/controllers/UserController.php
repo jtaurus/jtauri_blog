@@ -154,6 +154,7 @@ class UserController extends BaseController {
 		foreach($userCommentsAll as $oneComment){
 			$commentedPostReference = $oneComment->post()->get();
 			$data["comments"][$counter]["body"] = $oneComment->body_comment;
+			$data["comments"][$counter]["comment_post_date"] = $oneComment->created_at;
 			$data["comments"][$counter]["commented_post_id"] = $commentedPostReference[0]->id;
 			$data["comments"][$counter]["commented_post_title"] = $commentedPostReference[0]->title;
 			$counter += 1;
