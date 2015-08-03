@@ -33,7 +33,7 @@ class UserController extends BaseController {
 		$newUser->email = Input::get('email');
 		$newUser->save();
 		Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
-		return Redirect::to('/user/profile');
+		return Redirect::to('/user/welcome_page');
 		// otherwise show message about improper data
 
 	}
