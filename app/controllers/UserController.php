@@ -129,6 +129,7 @@ class UserController extends BaseController {
 		foreach($postsArray as $onePost){
 			$userReference = $onePost->user()->get();
 			$postsArray[$counter]["author"] = $userReference[0]->username;
+			$postsArray[$counter]["author_id"] = $userReference[0]->id;
 			$counter += 1;
 		}
 		Return View::make('index_page')->with('data', $postsArray);
