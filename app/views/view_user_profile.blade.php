@@ -36,7 +36,11 @@
 <body>
 Username: {{{$data["username"]}}}<br />
 E-mail: {{{$data["email"]}}}<br />
-Registration date: {{{$data["registration_date"]}}}
-
+Registration date: {{{$data["registration_date"]}}}<br />
+<h1>Latest posts:</h1><br />
+@foreach($data["posts"] as $onePost)
+	<center><a href="/simple_blog/public/article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a> <br />
+	{{{$onePost["body"]}}} <br /></center>
+@endforeach
 </body>
 </html>

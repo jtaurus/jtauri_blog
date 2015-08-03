@@ -140,6 +140,16 @@ class UserController extends BaseController {
 		$data["username"] = $userReference->username;
 		$data["email"] = $userReference->email;
 		$data["registration_date"] = $userReference->created_at;
+		// find users posts:
+		$userPostsAll = $userReference->posts()->get();
+		$userCommentsAll = $userReference->comments()->get();
+		$counter = 0;
+		foreach($userPostsAll as $onePost){
+			$data["posts"][$counter]["id"] = $onePost->id;
+			$data["posts"][$counter]["title"] = $onePost->title;
+			$data["posts"][$counter]["body"] = $onePost->body;
+			$counter += 1;
+		}
 		Return View::make('view_user_profile')->with('data', $data);
 	}
 
