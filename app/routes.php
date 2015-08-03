@@ -24,9 +24,9 @@ Route::get('/user/logout', 'UserController@logout');
 Route::get('/user/create', 'UserController@registration_page');
 Route::post('/user/create', 'UserController@register_user');
 
-// User profile:
+// Welcome page after logging in:
 
-Route::get('/user/profile', 'UserController@view_user_profile');
+Route::get('/user/welcome_page', 'UserController@welcome_page');
 
 // Posting articles:
 
