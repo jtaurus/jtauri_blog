@@ -17,6 +17,9 @@ Route::get('/', 'UserController@index_page');
 
 Route::get('/user/login', 'UserController@login_page');
 Route::post('/user/login', 'UserController@validate_login');
+
+// Logout:
+
 Route::get('/user/logout', 'UserController@logout');
 
 // Registration:

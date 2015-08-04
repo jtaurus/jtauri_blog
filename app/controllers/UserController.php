@@ -51,8 +51,9 @@ class UserController extends BaseController {
 	}
 
 	public function logout(){
+		Session::put('intended_url', URL::previous());
 		Auth::logout();
-		Return View::make('logout');
+		Return View::make('logout')->with('data', URL::previous());
 	}
 
 	public function article_posting_page(){

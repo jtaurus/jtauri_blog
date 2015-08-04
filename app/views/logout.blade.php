@@ -34,6 +34,7 @@
 	</style>
 </head>
 <body>
-You have been logged out. <a href="./login">Log in</a>.
+You have been logged out. <a href="./login">Log in</a>.<br />
+<a href="{{{$data}}}">Go back to where you were</a>
 </body>
 </html>
