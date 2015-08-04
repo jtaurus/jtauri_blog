@@ -150,6 +150,8 @@ class UserController extends BaseController {
 		// find users posts:
 		$userPostsAll = $userReference->posts()->get();
 		$userCommentsAll = $userReference->comments()->get();
+		$data["posts"] = [];
+		$data["comments"] = [];
 		$counter = 0;
 		foreach($userPostsAll as $onePost){
 			$data["posts"][$counter]["id"] = $onePost->id;
