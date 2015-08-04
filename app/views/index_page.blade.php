@@ -2,9 +2,11 @@
 @section('content')
 <center>
 	@foreach($data["posts"] as $onePost)
-		<h4><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a></h4>
-		<p>by: <a href="./user/{{{$onePost["author_id"]}}}/view_profile">{{{$onePost["author"]}}}</a></p>
-		<p>{{{$onePost["body"]}}}</p>
+	<div class="page-header">
+  <h1><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a> 
+  	<br /><small>by: <a href="./user/{{{$onePost["author_id"]}}}/view_profile">{{{$onePost["author"]}}}</a></small></h1>
+</div>
+		<div class="well">{{{$onePost["body"]}}}</div>
 	@endforeach
 </center>
 @stop
