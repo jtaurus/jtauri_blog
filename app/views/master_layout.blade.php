@@ -6,7 +6,7 @@
 </head>
 <body>
 
-
+	@include('partials.nav')
 		<div align="left"><a href="/simple_blog/public/">Home</a></div>
 	@if(!Auth::check())
 		<div align="right"><a href="/simple_blog/public/user/login">Login</a> | <a href="/simple_blog/public/user/create">Create account</a></div>
