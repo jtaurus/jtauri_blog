@@ -40,8 +40,8 @@
 		<div align="right"><a href="./article/new">Post new article</a> | <a href="./user/logout">Logout</a></div>
 	@endif
 
-	@yield('content');
+	@yield('content')
 
-	@yield('footer');
+	@yield('footer')
 </body>
 </html>
