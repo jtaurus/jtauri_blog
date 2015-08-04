@@ -3,8 +3,14 @@
 	<meta charset="UTF-8">
 	<title>Laravel PHP Framework</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<style>
+	  body {
+    padding-top: 60px;
+  	}
+  </style>
 </head>
 <body>
+
 
 	
 	@if(!Auth::check())
@@ -12,6 +18,8 @@
 	@else
 		@include('partials.nav_logged_in')
 	@endif
+
+
 
 	<div class="container">
 	@yield('content')
