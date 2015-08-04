@@ -3,6 +3,7 @@
 class UserController extends BaseController {
 
 	public function login_page(){
+		Session::put('intended_url', URL::previous());
 		Return View::make('login');
 	}
 
@@ -14,7 +15,8 @@ class UserController extends BaseController {
 		$enteredPassword = Request::input('password');
 		if(Auth::attempt(array('username' => $enteredUsername, 'password' => $enteredPassword))){
 			//Return View::make('user_profile')->with('user', Auth::user());
-			return Redirect::to('/user/welcome_page');
+			//return Redirect::to('/user/welcome_page');
+			return Redirect::to(Session::get('intended_url'));
 		}
 		// If unable to log in with valid credentials, send message about wrong authorization attempt:
 		if(!Auth::attempt(array('username' => $enteredUsername, 'password' => $enteredPassword))){
