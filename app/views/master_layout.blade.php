@@ -35,9 +35,9 @@
 <body>
 		<div align="left"><a href="/simple_blog/public/">Home</a></div>
 	@if(!Auth::check())
-		<div align="right"><a href="/simple_blog/public/user/login">Login</a> | <a href="./user/create">Create account</a></div>
+		<div align="right"><a href="/simple_blog/public/user/login">Login</a> | <a href="/simple_blog/public/user/create">Create account</a></div>
 	@else
-		<div align="right"><a href="/simple_blog/public/article/new">Post new article</a> | <a href="./user/logout">Logout</a></div>
+		<div align="right"><a href="/simple_blog/public/article/new">Post new article</a> | <a href="/simple_blog/public/user/logout">Logout</a></div>
 	@endif
 
 	@yield('content')
