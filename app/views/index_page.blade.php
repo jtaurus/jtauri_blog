@@ -34,7 +34,7 @@
 	</style>
 </head>
 <body>
-	@if(!Auth::check())
+	@if(!$data["isLoggedIn"])
 		<div align="right"><a href="./user/login">Login</a> | <a href="./user/create">Create account</a></div>
 	@else
 		<div align="right"><a href="./article/new">Post new article</a> | <a href="./user/logout">Logout</a></div>
