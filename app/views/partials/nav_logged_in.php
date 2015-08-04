@@ -13,7 +13,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+          <li><a href="/simple_blog/public/article/new">Post new article</a></li>
+          <li><a href="/simple_blog/public/user/logout">Logout</a></li>
       </ul>
   </div>
 </nav>
