@@ -10,7 +10,7 @@ Registration date: {{{$data["registration_date"]}}}<br />
 @if(count($data["posts"]) > 0)
 	@foreach($data["posts"] as $onePost)
 		<center><h3><a href="/simple_blog/public/article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a></h3> on {{{$onePost["post_date"]}}} <br />
-		{{{$onePost["body"]}}} <br /></center>
+		{{$onePost["body"]}} <br /></center>
 	@endforeach
 @else
 	No posts to show.
