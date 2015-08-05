@@ -18,7 +18,7 @@
   	<h1 class="text-left"><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a> </h1>
   	<br /><h3 class="text-right"><small>by: <a href="./user/{{{$onePost["author_id"]}}}/view_profile">{{{$onePost["author"]}}}</a></small></h3>
 	</div>
-		<div class="well">{{{$onePost["body"]}}}</div>
+		<div class="well">{{$onePost["body"]}}</div>
 	@endforeach
 	</div>
 </center>
