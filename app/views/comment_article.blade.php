@@ -4,7 +4,7 @@ Comment article
 @stop
 @section('content')
 <center>
-{{{$article}}}
+{{$article}}
 <br /><br />
 {{Form::open();}}
 {{Form::textarea('comment_body', '');}}
