@@ -6,7 +6,10 @@ Post a new article
 {{HTML::script("resources/ckeditor/ckeditor.js")}}
 @stop
 @section('content')
-<center>Welcome, {{{$username}}}. Use the form below to post a new article.</center> <br />
+<center>Welcome, {{{Auth::user()->username}}}. Use the form below to post a new article.</center> <br />
+@if(isset($message))
+	<center><h2>{{$message}}</h2></center>
+@endif
 {{Form::open();}}
 <div class="input-group">
   <span class="input-group-addon" id="basic-addon1">Title</span>
