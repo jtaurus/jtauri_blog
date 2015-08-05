@@ -1,4 +1,7 @@
 @extends('master_layout')
+@section('title')
+{{{$data["username"]}}} user profile
+@stop
 @section('content')
 Username: {{{$data["username"]}}}<br />
 E-mail: {{{$data["email"]}}}<br />

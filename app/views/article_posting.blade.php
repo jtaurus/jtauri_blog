@@ -1,4 +1,7 @@
 @extends('master_layout')
+@section('title')
+Post a new article
+@stop
 @section('head')
 {{HTML::script("resources/ckeditor/ckeditor.js")}}
 @stop

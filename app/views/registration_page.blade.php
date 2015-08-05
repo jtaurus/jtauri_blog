@@ -1,4 +1,7 @@
 @extends('master_layout')
+@section('title')
+Create a new account
+@stop
 @section('content')
 <center>Create a new account</center>
 {{Form::open();}}

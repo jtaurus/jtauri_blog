@@ -1,4 +1,7 @@
 @extends('master_layout')
+@section('title')
+Comment article
+@stop
 @section('content')
 <center>
 {{{$article}}}

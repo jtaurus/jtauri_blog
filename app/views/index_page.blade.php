@@ -1,4 +1,7 @@
 @extends('master_layout')
+@section('title')
+Blog
+@stop
 @section('content')
 <center>
 	<div class="col-sm-3">
