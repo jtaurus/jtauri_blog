@@ -129,6 +129,13 @@ class UserController extends BaseController {
 
 	public function index_page(){
 		$postsArray = Post::orderBy('id', 'DESC')->get()->take(5);
+		$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
+		$counter = 0;
+		foreach($sidebarLinks as $oneLink){
+			$sideBarLinks[$counter]["title"] = $oneLink->title;
+			$sideBarLinks[$counter]["id"] = $oneLink->id;
+			$counter += 1;
+		}
 		$counter = 0;
 		foreach($postsArray as $onePost){
 			$userReference = $onePost->user()->get();
@@ -139,6 +146,7 @@ class UserController extends BaseController {
 		// pass whether the user is logged in or not:
 		$data["isLoggedIn"] = Auth::check();
 		$data["posts"] = $postsArray;
+		$data["sidebar_links"] = $sideBarLinks;
 		Return View::make('index_page')->with('data', $data);
 	}
 

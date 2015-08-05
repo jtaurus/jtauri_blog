@@ -8,8 +8,8 @@ Blog
 	<div class="thumbnail text-center">
 		<center><h3>Latest posts:</h3></center>
 		<ul>
-		@foreach($data["posts"] as $onePost)
-			<li class="text-left"><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a> </li>
+		@foreach($data["sidebar_links"] as $oneLink)
+			<li class="text-left"><a href="./article/view/{{{$oneLink["id"]}}}">{{{$oneLink["title"]}}}</a> </li>
 		@endforeach
 		</ul>
 	</div>
