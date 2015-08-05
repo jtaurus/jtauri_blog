@@ -128,7 +128,7 @@ class UserController extends BaseController {
 	}
 
 	public function index_page(){
-		$postsArray = Post::all();
+		$postsArray = Post::orderBy('id', 'DESC')->get()->take(5);
 		$counter = 0;
 		foreach($postsArray as $onePost){
 			$userReference = $onePost->user()->get();
