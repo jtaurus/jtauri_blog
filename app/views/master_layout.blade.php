@@ -8,6 +8,7 @@
     padding-top: 60px;
   	}
   </style>
+  @yield('head')
 </head>
 <body>
 
