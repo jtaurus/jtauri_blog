@@ -3,6 +3,9 @@
 {{{$data["title"]}}}
 @stop
 @section('content')
+@if(Auth::user()->username == $data["author"])
+<div class="text-right"><a href="../edit/{{$data["id"]}}">Edit this article</a></div>
+@endif
 <h1>{{{$data["title"]}}}</h1><br /><br />
 <p>{{ $data["body"] }}</p><br /><br />
 <a href="./{{{$data["id"]}}}/comment">Add comment to this article</a>

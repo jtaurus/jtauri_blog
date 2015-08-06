@@ -95,6 +95,8 @@ class UserController extends BaseController {
 		$comments = $postInstance->comments()->get();
 		$data["title"] = $postInstance["title"];
 		$data["body"] = $postInstance["body"];
+		$authorOfThePost = $postInstance->user()->get();
+		$data["author"] = $authorOfThePost[0]["username"];
 		$data["comments"] = $comments;
 		$data["detailed_comments"] = array();
 		$data["id"] = $postInstance["id"];
