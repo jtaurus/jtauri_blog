@@ -211,8 +211,8 @@ class UserController extends BaseController {
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
 		$validatorInstance = Validator::make(
-    	array('title' => Input::get('title')),
-    	array('title' => 'required'));
+    	array('title' => Input::get('title'), 'body' => Input::get('body')),
+    	array('title' => 'required', 'body' => 'required'));
     	if($validatorInstance->passes()){
 			$postInstance->save();
 			Return Redirect::to('./article/view/' . $id);
