@@ -216,7 +216,7 @@ class UserController extends BaseController {
     	array('title' => 'required', 'body' => 'required'));
     	if($validatorInstance->passes()){
 			$postInstance->save();
-			Return Redirect::to('./article/view/' . $id);
+			Return Redirect::route('view_article', $id);
 		}
 		else{
 			$data["post_body"] = $postInstance->body;
