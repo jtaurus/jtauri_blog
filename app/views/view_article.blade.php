@@ -4,7 +4,7 @@
 @stop
 @section('content')
 @if(Auth::check() && Auth::user()->username == $data["author"])
-<div class="text-right"><a href="../edit/{{$data["id"]}}">Edit this article</a></div>
+<div class="text-right"><a href="../edit/{{$data["id"]}}">Edit this article</a> | <a href="../delete/{{$data["id"]}}">Delete</a></div>
 @endif
 <h1>{{{$data["title"]}}}</h1><br /><br />
 <p>{{ $data["body"] }}</p><br /><br />
