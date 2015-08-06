@@ -4,7 +4,9 @@ Comment article
 @stop
 @section('content')
 <center>
+<div class ="text-left">
 {{$article}}
+</div>
 <br /><br />
 {{Form::open();}}
 {{Form::textarea('comment_body', '', array('class' => 'form-control', 'rows' => '3'));}}
