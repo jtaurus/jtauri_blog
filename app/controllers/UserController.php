@@ -237,4 +237,17 @@ class UserController extends BaseController {
 		}
 	}
 
+	public function delete_comment($article_id, $comment_id){
+		$commentReference = Comment::findOrFail($comment_id);
+		$commentsAuthor = $commentReference->user()->get();
+		$commentsAuthor = $commentsAuthor[0];
+		if(Auth::check() && Auth::user()->username == $commentsAuthor->username){
+			Comment::destroy($comment_id);
+			Return Redirect::to('../public/');
+		}
+		else{
+			Return Redirect::to('/user/login');
+		}
+	}
+
 }

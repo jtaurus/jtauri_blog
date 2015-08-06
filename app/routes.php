@@ -57,6 +57,11 @@ Route::get('/article/delete/{id}', [ 'uses' => 'UserController@delete_article'])
 
 Route::get('/article/view/{id}/comment', ['uses' => 'UserController@comment_article']);
 Route::post('/article/view/{id}/comment', ['uses' => 'UserController@comment_article_add']);
+
+// Deleting comments:
+
+Route::get('/article/view/{article_id}/comment/{comment_id}', ['uses' => 'UserController@delete_comment']);
+
 Route::get('/test', function(){
 	$oneUser = User::find(1);
 	$usersPosts = $oneUser->posts()->get();
