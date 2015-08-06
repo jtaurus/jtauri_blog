@@ -126,7 +126,7 @@ class UserController extends BaseController {
 	public function comment_article_add($id){
 		$user = Auth::user();
 		if(!Auth::check()){
-			Return Redirect::to('/user/login');
+			Return Redirect::route('login');
 		}
 		else{
 			$commentInstance = new Comment;
