@@ -5,11 +5,14 @@ Login page
 @section('content')
 	{{{$message or ""}}}
 	<br /><br />
-	{{Form::open();}}
-	{{Form::text('username', 'username');}}
-	<br />
-	{{Form::password('password');}}
-	<br />
-	{{Form::submit('Log in');}}
+	{{Form::open( array('class' => 'form-inline'));}}
+	<div class="form-group">
+	{{Form::label('username', 'Username')}}
+	{{Form::text('username', null, array('class' => 'form-control', 'placeholder' => 'Username'));}}
+	</div>
+	<div class="form-group">
+	{{Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password'));}}
+	</div>
+	{{Form::submit('Log in', array('class' => 'btn btn-default'));}}
 	{{Form::close();}}
 @stop
