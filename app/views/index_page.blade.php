@@ -16,13 +16,15 @@ Blog
 </div>
 
 	<div class="col-sm-9">
+		<div>
 	@foreach($data["posts"] as $onePost)
 	<div class="page-header">
   	<h1 class="text-left"><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a> </h1>
   	<br /><h3 class="text-right"><small>by: <a href="./user/{{{$onePost["author_id"]}}}/view_profile">{{{$onePost["author"]}}}</a></small></h3>
 	</div>
-		<p >{{$onePost["body"]}}</p>
+		<div class="text-left">{{$onePost["body"]}}</div>
 	@endforeach
+		</div>
 	</div>
 	{{$data["posts"]->links()}}
 </center>
