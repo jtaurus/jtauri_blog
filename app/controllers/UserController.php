@@ -230,7 +230,7 @@ class UserController extends BaseController {
 		$postInstance = Post::findOrFail($id);
 		$postAuthor = $postInstance->user()->get();
 		if(Auth::user()->username != $postAuthor[0]->username){
-			Return Redirect::to('/user/login');
+			Return Redirect::route('login');
 		}
 		else{
 			// Also delete all comments:
