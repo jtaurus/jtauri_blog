@@ -11,7 +11,7 @@
 <a href="{{route('comment_article', $data["id"]);}}">Add comment to this article</a>
 <h3>Comments:</h3>
 @foreach ($data["detailed_comments"] as $oneComment)
-	<div class="text-right"> posted on {{{$oneComment["created_at"]}}} by: <a href="/simple_blog/public/user/{{{$oneComment["author_id"]}}}/view_profile">{{{$oneComment["author"]}}}</a></div>
+	<div class="text-right"> posted on {{{$oneComment["created_at"]}}} by: <a href="{{route('user_profile', $oneComment["author_id"]);}}">{{{$oneComment["author"]}}}</a></div>
 	@if(Auth::user()->username == $oneComment["author"])
 		<div class="text-right"><a href="{{$data["id"]}}/comment/{{$oneComment["id"]}}/delete">delete</a></div>
 	@endif
