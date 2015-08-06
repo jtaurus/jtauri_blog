@@ -210,8 +210,19 @@ class UserController extends BaseController {
 		$postInstance = Post::findOrFail($id);
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
-		$postInstance->save();
-		Return Redirect::to('./article/view/' . $id);
+		$validatorInstance = Validator::make(
+    	array('title' => Input::get('title')),
+    	array('title' => 'required'));
+    	if($validatorInstance->passes()){
+			$postInstance->save();
+			Return Redirect::to('./article/view/' . $id);
+		}
+		else{
+			$data["post_body"] = $postInstance->body;
+			$data["post_title"] = $postInstance->title;
+			$data["message"] = "Please fill out every field correctly.";
+			Return View::make('article_edit')->with('data', $data);
+		}
 	}
 
 	public function delete_article($id){

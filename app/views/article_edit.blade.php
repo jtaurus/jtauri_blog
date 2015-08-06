@@ -9,8 +9,8 @@ Edit article
 @if(Auth::check())
 <center>Welcome, {{{Auth::user()->username}}}. Use the form below to edit this article.</center> <br />
 @endif
-@if(isset($message))
-	<center><h2>{{$message}}</h2></center>
+@if(isset($data["message"]))
+	<center><h2>{{$data["message"]}}</h2></center>
 @endif
 {{Form::open();}}
 <div class="input-group">
