@@ -15,7 +15,7 @@ Route::get('/', 'UserController@index_page');
 
 // Logins:
 
-Route::get('/user/login', 'UserController@login_page');
+Route::get('/user/login', ['as' => 'login', 'uses' => 'UserController@login_page']);
 Route::post('/user/login', 'UserController@validate_login');
 
 // Logout:

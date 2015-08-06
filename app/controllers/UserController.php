@@ -46,7 +46,7 @@ class UserController extends BaseController {
 			Return View::make('welcome_page')->with('user', $user);
 		}
 		else{
-			Return Redirect::to('/user/login');
+			Return Redirect::route('login');
 		}
 	}
 
@@ -58,7 +58,7 @@ class UserController extends BaseController {
 
 	public function article_posting_page(){
 		if(!Auth::check()){
-			Return Redirect::to('/user/login');
+			Return Redirect::route('login');
 		}
 		$username = Auth::user();
 		$username = $username["username"];
