@@ -189,4 +189,19 @@ class UserController extends BaseController {
 		Return View::make('view_user_profile')->with('data', $data);
 	}
 
+	public function view_edit_article_page($id){
+		$postInstance = Post::findOrFail($id);
+		$data["post_body"] = $postInstance->body;
+		$data["post_title"] = $postInstance->title;
+		Return View::make('article_edit')->with('data', $data);
+	}
+
+	public function apply_edit_article_changes($id){
+		$postInstance = Post::findOrFail($id);
+		$postInstance->title = Input::get('title');
+		$postInstance->body = Input::get('body');
+		$postIntance->save();
+		Return Redirect::to('/simple_blog/public/article/view/' . $id);
+	}
+
 }

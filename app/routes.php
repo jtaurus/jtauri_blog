@@ -40,6 +40,11 @@ Route::get('/user/{id}/view_profile', ['uses' => 'UserController@view_user_profi
 Route::get('/article/new', 'UserController@article_posting_page');
 Route::post('/article/new', 'UserController@post_article');
 
+// Editing articles:
+
+Route::get('/article/edit/{id}', [ 'uses' => 'UserController@view_edit_article_page']);
+Route::post('article/edit/{id}', [ 'uses' => 'UserController@apply_edit_article_changes']);
+
 // Viewing articles:
 
 Route::get('/article/view/{id}', ['uses' => 'UserController@view_article']);
