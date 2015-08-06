@@ -114,7 +114,7 @@ class UserController extends BaseController {
 	public function comment_article($id){
 		$user = Auth::user();
 		if(!Auth::check()){
-			Return Redirect::to('/user/login');
+			Return Redirect::route('login');
 		}
 		else{
 			$theArticle = Post::findOrFail($id);
