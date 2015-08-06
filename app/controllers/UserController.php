@@ -79,7 +79,7 @@ class UserController extends BaseController {
 		if($validatorInstance->passes()){
 			$postInstance->save();
 			$postId = $postInstance->id;
-			Return Redirect::to('/article/view/' . $postId . '/');
+			return Redirect::route('view_article', $postId);
 		}
 		else{
 			Return View::make('article_posting')->with('message', "Please fill out every field properly.");
