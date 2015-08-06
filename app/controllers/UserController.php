@@ -214,4 +214,16 @@ class UserController extends BaseController {
 		Return Redirect::to('./article/view/' . $id);
 	}
 
+	public function delete_article($id){
+		$postInstance = Post::findOrFail($id);
+		$postAuthor = $postInstance->user()->get();
+		if(Auth::user()->username != $postAuthor[0]->username){
+			Return Redirect::to('/user/login');
+		}
+		else{
+			Post::destroy($id);
+			Return Redirect::to("../public/");
+		}
+	}
+
 }
