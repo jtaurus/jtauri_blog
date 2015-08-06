@@ -190,7 +190,15 @@ class UserController extends BaseController {
 	}
 
 	public function view_edit_article_page($id){
+		$user = Auth::user();
+		if(!Auth::check()){
+			Return Redirect::to('/user/login');
+		}
 		$postInstance = Post::findOrFail($id);
+		$postAuthor = $postInstance->user()->get();
+		if($user->username != $postAuthor[0]["username"]){
+			Return Redirect::to('/user/login');
+		}
 		$data["post_body"] = $postInstance->body;
 		$data["post_title"] = $postInstance->title;
 		Return View::make('article_edit')->with('data', $data);

@@ -6,7 +6,9 @@ Edit article
 {{HTML::script("resources/ckeditor/ckeditor.js")}}
 @stop
 @section('content')
+@if(Auth::check())
 <center>Welcome, {{{Auth::user()->username}}}. Use the form below to edit this article.</center> <br />
+@endif
 @if(isset($message))
 	<center><h2>{{$message}}</h2></center>
 @endif
