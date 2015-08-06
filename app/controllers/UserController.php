@@ -139,7 +139,7 @@ class UserController extends BaseController {
 	}
 
 	public function index_page(){
-		$postsArray = Post::orderBy('id', 'DESC')->get()->take(5);
+		$postsArray = Post::orderBy('id', 'DESC')->paginate(5);
 		$sideBarLinks = array();
 		$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
 		$counter = 0;

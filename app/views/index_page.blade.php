@@ -24,5 +24,6 @@ Blog
 		<p >{{$onePost["body"]}}</p>
 	@endforeach
 	</div>
+	{{$data["posts"]->links()}}
 </center>
 @stop
