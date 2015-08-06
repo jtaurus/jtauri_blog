@@ -9,8 +9,8 @@ Registration date: {{{$data["registration_date"]}}}<br />
 <h1>Latest posts:</h1><br />
 @if(count($data["posts"]) > 0)
 	@foreach($data["posts"] as $onePost)
-		<center><h3><a href="{{route('view_article', $onePost["id"]);}}">{{{$onePost["title"]}}}</a></h3> on {{{$onePost["post_date"]}}} <br />
-		{{$onePost["body"]}} <br /></center>
+		<div class ="text-left"><h3><a href="{{route('view_article', $onePost["id"]);}}">{{{$onePost["title"]}}}</a></h3> on {{{$onePost["post_date"]}}}</div> <br />
+		<div class ="text-left">{{$onePost["body"]}}</div> <br /></center>
 	@endforeach
 @else
 	No posts to show.
@@ -19,8 +19,8 @@ Registration date: {{{$data["registration_date"]}}}<br />
 	<center>
 @if(count($data["comments"]) > 0)
 	@foreach($data["comments"] as $oneComment)
-		<center><h3><a href="{{route('view_article', $oneComment["commented_post_id"]);}}">{{{$oneComment["commented_post_title"]}}}</a></h3> on {{{$oneComment["comment_post_date"]}}} <br />
-			<p>{{{$oneComment["body"]}}}</p>
+		<div class ="text-left"><h3><a href="{{route('view_article', $oneComment["commented_post_id"]);}}">{{{$oneComment["commented_post_title"]}}}</a></h3> on {{{$oneComment["comment_post_date"]}}}</div> <br />
+			<div class ="text-left">{{{$oneComment["body"]}}}</div>
 	@endforeach
 @else
 	No comments to show.
