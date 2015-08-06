@@ -12,10 +12,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <<li class="active"><a href="">Current page <span class="sr-only">(current)</span></a></li>
-          <li><a href="/simple_blog/public/article/new">Post new article</a></li>
-          <li><a href="/simple_blog/public/user/logout">Logout</a></li>
-          <p class="navbar-text">You are signed in.</p>
+        <li class="active"><a href="">Current page <span class="sr-only">(current)</span></a></li>
+          <li><a href="{{route('login')}}">Login</a></li>
+          <li><a href="{{route('registration')}}">Sign-up</a></li>
       </ul>
   </div>
 </nav>
