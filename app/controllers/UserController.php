@@ -243,7 +243,7 @@ class UserController extends BaseController {
 		$commentsAuthor = $commentsAuthor[0];
 		if(Auth::check() && Auth::user()->username == $commentsAuthor->username){
 			Comment::destroy($comment_id);
-			Return Redirect::to('../public/');
+			Return Redirect::to(URL::previous());
 		}
 		else{
 			Return Redirect::to('/user/login');
