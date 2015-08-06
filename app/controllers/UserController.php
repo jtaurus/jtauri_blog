@@ -70,8 +70,8 @@ class UserController extends BaseController {
 			Return Redirect::to('/user/login');
 		}
 		$validatorInstance = Validator::make(
-    	array('title' => Input::get('title')),
-    	array('title' => 'required'));
+    	array('title' => Input::get('title'), 'body' => Input::get('body')),
+    	array('title' => 'required', 'body' => 'required'));
 		$postInstance = new Post;
 		$postInstance->user_id = Auth::user()->id;
 		$postInstance->title = Input::get('title');
@@ -82,7 +82,7 @@ class UserController extends BaseController {
 			Return Redirect::to('/article/view/' . $postId . '/');
 		}
 		else{
-			Return View::make('article_posting')->with('message', "Title is required");
+			Return View::make('article_posting')->with('message', "Please fill out every field properly.");
 		}
 
 		// After posting, redirect user to the article page
