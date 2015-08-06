@@ -15,7 +15,7 @@
         <<li class="active"><a href="{{URL::current()}}">Current page <span class="sr-only">(current)</span></a></li>
           <li><a href="{{route('article_posting_page')}}">Post new article</a></li>
           <li><a href="{{route('logout')}}">Logout</a></li>
-          <p class="navbar-text">You are signed in.</p>
+          <p class="navbar-text">You are signed in as <a href="{{route('user_profile', Auth::user()->id)}}">{{Auth::user()->username}}</a>.</p>
       </ul>
   </div>
 </nav>
