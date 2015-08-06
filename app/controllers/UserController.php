@@ -209,7 +209,7 @@ class UserController extends BaseController {
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
 		$postInstance->save();
-		Return Redirect::to('/simple_blog/public/article/view/' . $id);
+		Return Redirect::to('./article/view/' . $id);
 	}
 
 }
