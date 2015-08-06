@@ -13,7 +13,7 @@
 @foreach ($data["detailed_comments"] as $oneComment)
 	<div class="text-right"> posted on {{{$oneComment["created_at"]}}} by: <a href="{{route('user_profile', $oneComment["author_id"]);}}">{{{$oneComment["author"]}}}</a></div>
 	@if(Auth::user()->username == $oneComment["author"])
-		<div class="text-right"><a href="{{$data["id"]}}/comment/{{$oneComment["id"]}}/delete">delete</a></div>
+		<div class="text-right"><a href="{{route('delete_article', array('article_id' => $data["id"], 'comment_id' => $oneComment["id"]));}}">delete</a></div>
 	@endif
 	<div class="well" class="text-left">{{{$oneComment["body_comment"] }}}</div>
 @endforeach
