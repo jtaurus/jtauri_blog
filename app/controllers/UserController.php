@@ -134,7 +134,7 @@ class UserController extends BaseController {
 			$commentInstance->post_id = $id;
 			$commentInstance->body_comment = Input::get('comment_body');
 			$commentInstance->save();
-			Return Redirect::to('/article/view/' . $id . '/');
+			Return Redirect::route('view_article', $id);
 		}
 	}
 
