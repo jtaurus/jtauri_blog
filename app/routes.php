@@ -20,47 +20,47 @@ Route::post('/user/login', 'UserController@validate_login');
 
 // Logout:
 
-Route::get('/user/logout', 'UserController@logout');
+Route::get('/user/logout', ['as' => 'logout', 'uses' => 'UserController@logout']);
 
 // Registration:
 
-Route::get('/user/create', 'UserController@registration_page');
+Route::get('/user/create', ['as' => 'registration', 'uses' => 'UserController@registration_page']);
 Route::post('/user/create', 'UserController@register_user');
 
 // Welcome page after logging in:
 
-Route::get('/user/welcome_page', 'UserController@welcome_page');
+Route::get('/user/welcome_page', ['as' => 'welcome_page', 'uses' => 'UserController@welcome_page']);
 
 // View user profile:
 
-Route::get('/user/{id}/view_profile', ['uses' => 'UserController@view_user_profile']);
+Route::get('/user/{id}/view_profile', ['as' => 'user_profile', 'uses' => 'UserController@view_user_profile']);
 
 // Posting articles:
 
-Route::get('/article/new', 'UserController@article_posting_page');
+Route::get('/article/new', ['as' => 'article_posting_page', 'uses' => 'UserController@article_posting_page']);
 Route::post('/article/new', 'UserController@post_article');
 
 // Viewing articles:
 
-Route::get('/article/view/{id}', ['uses' => 'UserController@view_article']);
+Route::get('/article/view/{id}', ['as' => 'view_article', 'uses' => 'UserController@view_article']);
 
 // Editing articles:
 
-Route::get('/article/edit/{id}', [ 'uses' => 'UserController@view_edit_article_page']);
+Route::get('/article/edit/{id}', [ 'as' => 'edit_article', 'uses' => 'UserController@view_edit_article_page']);
 Route::post('article/edit/{id}', [ 'uses' => 'UserController@apply_edit_article_changes']);
 
 // Deleting articles:
 
-Route::get('/article/delete/{id}', [ 'uses' => 'UserController@delete_article']);
+Route::get('/article/delete/{id}', [ 'as' => 'delete_article', 'uses' => 'UserController@delete_article']);
 
 // Commenting articles:
 
-Route::get('/article/view/{id}/comment', ['uses' => 'UserController@comment_article']);
+Route::get('/article/view/{id}/comment', ['as' => 'comment_article', 'uses' => 'UserController@comment_article']);
 Route::post('/article/view/{id}/comment', ['uses' => 'UserController@comment_article_add']);
 
 // Deleting comments:
 
-Route::get('/article/view/{article_id}/comment/{comment_id}/delete', ['uses' => 'UserController@delete_comment']);
+Route::get('/article/view/{article_id}/comment/{comment_id}/delete', ['as' => 'delete_article', 'uses' => 'UserController@delete_comment']);
 
 Route::get('/test', function(){
 	$oneUser = User::find(1);
