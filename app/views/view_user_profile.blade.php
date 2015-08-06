@@ -19,7 +19,7 @@ Registration date: {{{$data["registration_date"]}}}<br />
 	<center>
 @if(count($data["comments"]) > 0)
 	@foreach($data["comments"] as $oneComment)
-		<center><h3><a href="/simple_blog/public/article/view/{{{$oneComment["commented_post_id"]}}}">{{{$oneComment["commented_post_title"]}}}</a></h3> on {{{$oneComment["comment_post_date"]}}} <br />
+		<center><h3><a href="{{route('view_article', $oneComment["commented_post_id"]);}}">{{{$oneComment["commented_post_title"]}}}</a></h3> on {{{$oneComment["comment_post_date"]}}} <br />
 			<p>{{{$oneComment["body"]}}}</p>
 	@endforeach
 @else
