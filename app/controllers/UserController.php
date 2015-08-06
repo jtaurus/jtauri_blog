@@ -140,6 +140,7 @@ class UserController extends BaseController {
 
 	public function index_page(){
 		$postsArray = Post::orderBy('id', 'DESC')->get()->take(5);
+		$sideBarLinks = array();
 		$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
 		$counter = 0;
 		foreach($sidebarLinks as $oneLink){
@@ -232,6 +233,11 @@ class UserController extends BaseController {
 			Return Redirect::to('/user/login');
 		}
 		else{
+			// Also delete all comments:
+			$commentsArray = $postInstance->comments()->get();
+			foreach($commentsArray as $oneComment){
+				Comment::destroy($oneComment->id);
+			}
 			Post::destroy($id);
 			Return Redirect::to("../public/");
 		}
