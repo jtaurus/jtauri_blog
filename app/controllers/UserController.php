@@ -35,7 +35,7 @@ class UserController extends BaseController {
 		$newUser->email = Input::get('email');
 		$newUser->save();
 		Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
-		return Redirect::to('/user/welcome_page');
+		return Redirect::route('welcome_page');
 		// otherwise show message about improper data
 
 	}
@@ -67,7 +67,7 @@ class UserController extends BaseController {
 
 	public function post_article(){
 		if(!Auth::check()){
-			Return Redirect::to('/user/login');
+			Return Redirect::route('login');
 		}
 		$validatorInstance = Validator::make(
     	array('title' => Input::get('title'), 'body' => Input::get('body')),
