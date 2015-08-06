@@ -252,7 +252,7 @@ class UserController extends BaseController {
 			Return Redirect::to(URL::previous());
 		}
 		else{
-			Return Redirect::to('/user/login');
+			Return Redirect::route('login');
 		}
 	}
 
