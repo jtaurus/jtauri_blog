@@ -17,5 +17,5 @@
 	@endif
 	<div class="well" class="text-left">{{{$oneComment["body_comment"] }}}</div>
 @endforeach
-<br /><br />
+<center>{{$data["pagination_links"]}}</center>
 @stop

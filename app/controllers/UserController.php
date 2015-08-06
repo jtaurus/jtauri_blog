@@ -92,7 +92,7 @@ class UserController extends BaseController {
 		// fetch the article and display it
 		$postInstance = Post::findOrFail($id);
 		// fetch the comments
-		$comments = $postInstance->comments()->get();
+		$comments = $postInstance->comments()->paginate(10);
 		$data["title"] = $postInstance["title"];
 		$data["body"] = $postInstance["body"];
 		$authorOfThePost = $postInstance->user()->get();
@@ -107,6 +107,7 @@ class UserController extends BaseController {
 			$moreData["author_id"] = $postAuthor[0]["id"];
 			$data["detailed_comments"][] = $moreData;
 		}
+		$data["pagination_links"] = $comments->links();
 		// if no post found with given id, make a 404 page:
 		return View::make('view_article')->with('data', $data);
 	}
