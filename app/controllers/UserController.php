@@ -239,7 +239,7 @@ class UserController extends BaseController {
 				Comment::destroy($oneComment->id);
 			}
 			Post::destroy($id);
-			Return Redirect::to("../public/");
+			Return Redirect::route("home");
 		}
 	}
 

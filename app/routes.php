@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'UserController@index_page');
+Route::get('/', ['as' => 'homepage', 'uses' => 'UserController@index_page');
 
 // Logins:
 
