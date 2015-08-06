@@ -208,7 +208,7 @@ class UserController extends BaseController {
 		$postInstance = Post::findOrFail($id);
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
-		$postIntance->save();
+		$postInstance->save();
 		Return Redirect::to('/simple_blog/public/article/view/' . $id);
 	}
 
