@@ -13,6 +13,12 @@ Blog
 		@endforeach
 		</ul>
 	</div>
+		<div class="thumbnail text-center">
+		<center><h3>Categories:</h3></center>
+		<ul>
+			<li class="text-left">Category placeholder</li>
+		</ul>
+	</div>
 </div>
 
 	<div class="col-sm-9">
