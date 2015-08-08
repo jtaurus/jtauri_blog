@@ -62,7 +62,12 @@ class UserController extends BaseController {
 		}
 		$username = Auth::user();
 		$username = $username["username"];
-		Return View::make('article_posting')->with('username', $username);
+		$categoriesList = Category::all();
+		$data["username"] = $username;
+		foreach($categoriesList as $oneCategory){
+			$data["categories"][$oneCategory->id] = $oneCategory->category_name;
+		}
+		Return View::make('article_posting')->with('data', $data);
 	}
 
 	public function post_article(){
@@ -76,6 +81,7 @@ class UserController extends BaseController {
 		$postInstance->user_id = Auth::user()->id;
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
+		$postInstance->category_id = Input::get('categories');
 		if($validatorInstance->passes()){
 			$postInstance->save();
 			$postId = $postInstance->id;
