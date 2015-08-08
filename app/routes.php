@@ -62,6 +62,10 @@ Route::post('/article/view/{id}/comment', ['uses' => 'UserController@comment_art
 
 Route::get('/article/view/{article_id}/comment/{comment_id}/delete', ['as' => 'delete_article', 'uses' => 'UserController@delete_comment']);
 
+// Categories page:
+
+Route::get('/category/{id}', ['as' => 'category_page', 'uses' => 'UserController@view_category']);
+
 Route::get('/test', function(){
 	$oneUser = User::find(1);
 	$usersPosts = $oneUser->posts()->get();

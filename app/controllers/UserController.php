@@ -265,4 +265,17 @@ class UserController extends BaseController {
 		}
 	}
 
+	public function view_category($id){
+		$categoryReference = Category::findOrFail($id);
+		$data["category_name"] = $categoryReference->category_name;
+		$postsArray = $categoryReference->post()->get();
+		$counter = 0;
+		foreach($postsArray as $onePost){
+			$data["posts"][$counter]["id"] = $onePost->id;
+			$data["posts"][$counter]["titile"] = $onePost->title;
+			$data["posts"][$counter]["body"] = $onePost->body;
+		}
+		Return View::make('category_page');
+	}
+
 }
