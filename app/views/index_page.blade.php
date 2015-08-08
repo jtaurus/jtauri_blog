@@ -16,7 +16,9 @@ Blog
 		<div class="thumbnail text-center">
 		<center><h3>Categories:</h3></center>
 		<ul>
-			<li class="text-left">Category placeholder</li>
+			@foreach($data["category_links"] as $oneLink)
+			<li class="text-left">{{$oneLink["name"]}}</li>
+			@endforeach
 		</ul>
 	</div>
 </div>

@@ -144,6 +144,12 @@ class UserController extends BaseController {
 		$postsArray = Post::orderBy('id', 'DESC')->paginate(5);
 		$sideBarLinks = array();
 		$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
+		$categoryLinks = Category::orderBy('id', 'DESC')->get()->take(5);
+		$counter = 0;
+		foreach($categoryLinks as $oneCategory){
+			$categoryLinksArray[$counter]["id"] = $oneCategory->id;
+			$categoryLinksArray[$counter]["name"] = $oneCategory->category_name;
+		}
 		$counter = 0;
 		foreach($sidebarLinks as $oneLink){
 			$sideBarLinks[$counter]["title"] = $oneLink->title;
@@ -161,6 +167,7 @@ class UserController extends BaseController {
 		$data["isLoggedIn"] = Auth::check();
 		$data["posts"] = $postsArray;
 		$data["sidebar_links"] = $sideBarLinks;
+		$data["category_links"] = $categoryLinksArray;
 		Return View::make('index_page')->with('data', $data);
 	}
 
