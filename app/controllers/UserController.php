@@ -155,6 +155,7 @@ class UserController extends BaseController {
 		foreach($categoryLinks as $oneCategory){
 			$categoryLinksArray[$counter]["id"] = $oneCategory->id;
 			$categoryLinksArray[$counter]["name"] = $oneCategory->category_name;
+			$counter += 1;
 		}
 		$counter = 0;
 		foreach($sidebarLinks as $oneLink){

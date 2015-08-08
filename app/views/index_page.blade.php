@@ -17,7 +17,7 @@ Blog
 		<center><h3>Categories:</h3></center>
 		<ul>
 			@foreach($data["category_links"] as $oneLink)
-			<li class="text-left">{{$oneLink["name"]}}</li>
+			<li class="text-left"><a href="{{route('category_page', $oneLink["id"])}}">{{$oneLink["name"]}}</a></li>
 			@endforeach
 		</ul>
 	</div>
