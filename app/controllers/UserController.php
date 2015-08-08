@@ -107,6 +107,9 @@ class UserController extends BaseController {
 		$data["comments"] = $comments;
 		$data["detailed_comments"] = array();
 		$data["id"] = $postInstance["id"];
+		$categoryInstance = $postInstance->categories()->get();
+		$data["category_id"] = $categoryInstance[0]->id;
+		$data["category_name"] = $categoryInstance[0]->category_name;
 			foreach($comments as $oneComment){
 			$postAuthor = $oneComment->user()->get();
 			$moreData = $oneComment;

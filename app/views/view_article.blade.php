@@ -7,7 +7,7 @@
 <div class="text-right"><a href="../edit/{{$data["id"]}}">Edit this article</a> | <a href="../delete/{{$data["id"]}}">Delete</a></div>
 @endif
 <h1>{{{$data["title"]}}}</h1>
-<div class="text-left">Posted by <a href="{{route('user_profile', $data["author_id"])}}">{{$data["author"]}}</a></div>
+<div class="text-left">Posted by <a href="{{route('user_profile', $data["author_id"])}}">{{$data["author"]}}</a> in <a href="{{route('category_page', $data["category_id"])}}">{{$data["category_name"]}}</a></div>
 <p>{{ $data["body"] }}</p><br /><br />
 <a href="{{route('comment_article', $data["id"]);}}">Add comment to this article</a>
 <h3>Comments:</h3>

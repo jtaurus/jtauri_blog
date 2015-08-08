@@ -24,6 +24,6 @@ class Post extends Eloquent{
 	}
 
 	public function categories(){
-		return $this->belongsToMany('Category');
+		return $this->belongsTo('Category', 'category_id');
 	}
 }
