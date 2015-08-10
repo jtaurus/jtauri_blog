@@ -9,3 +9,8 @@ View::composer('article_posting', function($view){
 	}
 	$view->with('data', $data);
 });
+
+View::composer('welcome_page', function($view){
+	$userReference = Auth::user();
+	$view->with('user', $userReference);
+});

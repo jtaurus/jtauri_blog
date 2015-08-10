@@ -41,9 +41,8 @@ class UserController extends BaseController {
 	}
 
 	public function welcome_page(){
-		$user = Auth::user();
 		if(Auth::check()){
-			Return View::make('welcome_page')->with('user', $user);
+			Return View::make('welcome_page');
 		}
 		else{
 			Return Redirect::route('login');
