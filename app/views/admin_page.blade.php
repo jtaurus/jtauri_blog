@@ -7,4 +7,9 @@ Admin page
 @foreach($data["posts"] as $onePost)
 <p><a href="{{route('view_article', $onePost->id)}}">{{$onePost->title}}</a> by <a href="{{route('user_profile', $onePost->user()->first()->id)}}">{{$onePost->user()->first()->username}}</a> </p> <br />
 @endforeach
+<h3 class="text-left">Recent comments</h3>
+@foreach($data["comments"] as $oneComment)
+<p>Comment for article: <a href="{{route('view_article', $oneComment->post()->first()->id)}}">{{$oneComment->post()->first()->title}}</a></p>
+<div class="text-center">{{$oneComment->body_comment}}</div>
+@endforeach
 @stop

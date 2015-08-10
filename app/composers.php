@@ -145,5 +145,9 @@ View::composer('admin_page', function($view){
 	foreach($recentPosts as $onePost){
 		$data["posts"][] = $onePost;
 	}
+	$recentComments = Comment::orderBy('id', 'DESC')->get()->take(10);
+	foreach($recentComments as $oneComment){
+		$data["comments"][] = $oneComment;
+	}
 	$view->with('data', $data);
 });
