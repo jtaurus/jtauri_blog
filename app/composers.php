@@ -103,11 +103,11 @@ View::composer('view_user_profile', function($view){
 	}
 	$counter = 0;
 	foreach($userCommentsAll as $oneComment){
-			$commentedPostReference = $oneComment->post()->get();
+			$commentedPostReference = $oneComment->post()->first();
 			$data["comments"][$counter]["body"] = $oneComment->body_comment;
 			$data["comments"][$counter]["comment_post_date"] = $oneComment->created_at;
-			$data["comments"][$counter]["commented_post_id"] = $commentedPostReference[0]->id;
-			$data["comments"][$counter]["commented_post_title"] = $commentedPostReference[0]->title;
+			$data["comments"][$counter]["commented_post_id"] = $commentedPostReference->id;
+			$data["comments"][$counter]["commented_post_title"] = $commentedPostReference->title;
 			$counter += 1;
 	}
 	$view->with('data', $data);
