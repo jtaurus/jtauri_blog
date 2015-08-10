@@ -11,4 +11,13 @@ class AdminController extends BaseController {
 		}
 	}
 
+	public function manage_users(){
+		if(Auth::user()["id"] == 1){
+			Return View::make('manage_users');
+		}
+		else{
+			Return Redirect::route('login');
+		}
+	}
+
 }
