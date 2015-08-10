@@ -156,8 +156,8 @@ class UserController extends BaseController {
 
 	public function delete_article($id){
 		$postInstance = Post::findOrFail($id);
-		$postAuthor = $postInstance->user()->get();
-		if(Auth::user()->username != $postAuthor[0]->username){
+		$postAuthor = $postInstance->user()->first();
+		if(Auth::user()->username != $postAuthor->username){
 			Return Redirect::route('login');
 		}
 		else{
@@ -173,8 +173,8 @@ class UserController extends BaseController {
 
 	public function delete_comment($article_id, $comment_id){
 		$commentReference = Comment::findOrFail($comment_id);
-		$commentsAuthor = $commentReference->user()->get();
-		$commentsAuthor = $commentsAuthor[0];
+		$commentsAuthor = $commentReference->user()->first();
+		$commentsAuthor = $commentsAuthor;
 		if(Auth::check() && Auth::user()->username == $commentsAuthor->username){
 			Comment::destroy($comment_id);
 			Return Redirect::to(URL::previous());
