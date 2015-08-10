@@ -114,7 +114,10 @@ View::composer('view_user_profile', function($view){
 });
 
 View::composer('article_edit', function($view){
-	$id = $view->getData()["id"];
+	$id = $view->getData()["data"]["id"];
+	if(isset($view->getData()["data"]["message"])){
+		$data["message"] = $view->getData()["data"]["message"];
+	}
 	$postInstance = Post::findOrFail($id);
 	$data["post_body"] = $postInstance->body;
 	$data["post_title"] = $postInstance->title;

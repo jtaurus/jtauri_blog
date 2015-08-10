@@ -132,7 +132,8 @@ class UserController extends BaseController {
 		if($user->username != $postAuthor[0]["username"]){
 			Return Redirect::route('login');
 		}
-		Return View::make('article_edit')->with('id', $id);
+		$data["id"] = $id;
+		Return View::make('article_edit')->with('data', $data);
 	}
 
 	public function apply_edit_article_changes($id){
@@ -147,9 +148,8 @@ class UserController extends BaseController {
 			Return Redirect::route('view_article', $id);
 		}
 		else{
-			$data["post_body"] = $postInstance->body;
-			$data["post_title"] = $postInstance->title;
 			$data["message"] = "Please fill out every field correctly.";
+			$data["id"] = $postInstance->id;
 			Return View::make('article_edit')->with('data', $data);
 		}
 	}
