@@ -69,9 +69,9 @@ View::composer('index_page', function($view){
 	}
 	$counter = 0;
 	foreach($postsArray as $onePost){
-			$userReference = $onePost->user()->get();
-			$postsArray[$counter]["author"] = $userReference[0]->username;
-			$postsArray[$counter]["author_id"] = $userReference[0]->id;
+			$userReference = $onePost->user()->first();
+			$postsArray[$counter]["author"] = $userReference->username;
+			$postsArray[$counter]["author_id"] = $userReference->id;
 			$counter += 1;
 	}
 	// pass whether the user is logged in or not:
