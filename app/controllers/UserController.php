@@ -119,33 +119,7 @@ class UserController extends BaseController {
 	}
 
 	public function view_user_profile($id){
-		$userReference = User::findOrFail($id);
-		$data["username"] = $userReference->username;
-		$data["email"] = $userReference->email;
-		$data["registration_date"] = $userReference->created_at;
-		// find users posts:
-		$userPostsAll = $userReference->posts()->get();
-		$userCommentsAll = $userReference->comments()->get();
-		$data["posts"] = [];
-		$data["comments"] = [];
-		$counter = 0;
-		foreach($userPostsAll as $onePost){
-			$data["posts"][$counter]["id"] = $onePost->id;
-			$data["posts"][$counter]["title"] = $onePost->title;
-			$data["posts"][$counter]["body"] = $onePost->body;
-			$data["posts"][$counter]["post_date"] = $onePost->created_at;
-			$counter += 1;
-		}
-		$counter = 0;
-		foreach($userCommentsAll as $oneComment){
-			$commentedPostReference = $oneComment->post()->get();
-			$data["comments"][$counter]["body"] = $oneComment->body_comment;
-			$data["comments"][$counter]["comment_post_date"] = $oneComment->created_at;
-			$data["comments"][$counter]["commented_post_id"] = $commentedPostReference[0]->id;
-			$data["comments"][$counter]["commented_post_title"] = $commentedPostReference[0]->title;
-			$counter += 1;
-		}
-		Return View::make('view_user_profile')->with('data', $data);
+		Return View::make('view_user_profile')->with('id', $id);
 	}
 
 	public function view_edit_article_page($id){
