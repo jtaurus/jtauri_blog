@@ -112,3 +112,11 @@ View::composer('view_user_profile', function($view){
 	}
 	$view->with('data', $data);
 });
+
+View::composer('article_edit', function($view){
+	$id = $view->getData()["id"];
+	$postInstance = Post::findOrFail($id);
+	$data["post_body"] = $postInstance->body;
+	$data["post_title"] = $postInstance->title;
+	$view->with('data', $data);
+});

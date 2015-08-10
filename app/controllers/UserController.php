@@ -132,9 +132,7 @@ class UserController extends BaseController {
 		if($user->username != $postAuthor[0]["username"]){
 			Return Redirect::route('login');
 		}
-		$data["post_body"] = $postInstance->body;
-		$data["post_title"] = $postInstance->title;
-		Return View::make('article_edit')->with('data', $data);
+		Return View::make('article_edit')->with('id', $id);
 	}
 
 	public function apply_edit_article_changes($id){
