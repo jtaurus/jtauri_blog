@@ -131,9 +131,9 @@ View::composer('category_view', function($view){
 	$postsArray = $categoryReference->post()->paginate(5);
 	$counter = 0;
 	foreach($postsArray as $onePost){
-			$authorReference = $onePost->user()->get();
-			$postsArray[$counter]["author"] = $authorReference[0]->username;
-			$postsArray[$counter]["author_id"] = $authorReference[0]->id;
+			$authorReference = $onePost->user()->first();
+			$postsArray[$counter]["author"] = $authorReference->username;
+			$postsArray[$counter]["author_id"] = $authorReference->id;
 			$counter += 1;
 	}
 	$data["posts"] = $postsArray;
