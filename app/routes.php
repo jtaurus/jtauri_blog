@@ -81,3 +81,7 @@ Route::get('/test', function(){
 		}
 	}
 });
+
+// Admin panel:
+
+Route::get('/admin', ['as' = 'admin_panel', 'uses' => 'AdminController@admin_page']);
