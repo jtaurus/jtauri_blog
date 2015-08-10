@@ -91,14 +91,11 @@ class UserController extends BaseController {
 	}
 
 	public function comment_article($id){
-		$user = Auth::user();
 		if(!Auth::check()){
 			Return Redirect::route('login');
 		}
 		else{
-			$theArticle = Post::findOrFail($id);
-			$theArticleText = $theArticle["body"];
-			return View::make('comment_article')->with('article', $theArticleText);
+			return View::make('comment_article')->with('id', $id);
 		}
 	}
 

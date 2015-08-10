@@ -42,3 +42,10 @@ View::composer('view_article', function($view){
 	$data["pagination_links"] = $comments->links();
 	$view->with('data', $data);
 });
+
+View::composer('comment_article', function($view){
+	$id = $view->getData()["id"];
+	$theArticle = Post::findOrFail($id);
+	$theArticleText = $theArticle["body"];
+	$view->with('article', $theArticleText);
+});
