@@ -151,3 +151,9 @@ View::composer('admin_page', function($view){
 	}
 	$view->with('data', $data);
 });
+
+View::composer('manage_users', function($view){
+	$usersList = User::orderBy('id', 'DESC')->paginate(5);
+	$data["users"] = $usersList;
+	$view->with('data', $data);
+});
