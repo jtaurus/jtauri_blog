@@ -123,3 +123,19 @@ View::composer('article_edit', function($view){
 	$data["post_title"] = $postInstance->title;
 	$view->with('data', $data);
 });
+
+View::composer('category_view', function($view){
+	$id = $view->getData()["id"];
+	$categoryReference = Category::findOrFail($id);
+	$data["category_name"] = $categoryReference->category_name;
+	$postsArray = $categoryReference->post()->paginate(5);
+	$counter = 0;
+	foreach($postsArray as $onePost){
+			$authorReference = $onePost->user()->get();
+			$postsArray[$counter]["author"] = $authorReference[0]->username;
+			$postsArray[$counter]["author_id"] = $authorReference[0]->id;
+			$counter += 1;
+	}
+	$data["posts"] = $postsArray;
+	$view->with('data', $data);
+});
