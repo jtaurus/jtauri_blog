@@ -49,3 +49,35 @@ View::composer('comment_article', function($view){
 	$theArticleText = $theArticle["body"];
 	$view->with('article', $theArticleText);
 });
+
+View::composer('index_page', function($view){
+	$postsArray = Post::orderBy('id', 'DESC')->paginate(5);
+	$sideBarLinks = array();
+	$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
+	$categoryLinks = Category::orderBy('id', 'DESC')->get()->take(5);
+	$counter = 0;
+	foreach($categoryLinks as $oneCategory){
+			$categoryLinksArray[$counter]["id"] = $oneCategory->id;
+			$categoryLinksArray[$counter]["name"] = $oneCategory->category_name;
+			$counter += 1;
+	}
+	$counter = 0;
+	foreach($sidebarLinks as $oneLink){
+			$sideBarLinks[$counter]["title"] = $oneLink->title;
+			$sideBarLinks[$counter]["id"] = $oneLink->id;
+			$counter += 1;
+	}
+	$counter = 0;
+	foreach($postsArray as $onePost){
+			$userReference = $onePost->user()->get();
+			$postsArray[$counter]["author"] = $userReference[0]->username;
+			$postsArray[$counter]["author_id"] = $userReference[0]->id;
+			$counter += 1;
+	}
+	// pass whether the user is logged in or not:
+	$data["isLoggedIn"] = Auth::check();
+	$data["posts"] = $postsArray;
+	$data["sidebar_links"] = $sideBarLinks;
+	$data["category_links"] = $categoryLinksArray;
+	$view->with('data', $data);
+});
