@@ -139,3 +139,11 @@ View::composer('category_view', function($view){
 	$data["posts"] = $postsArray;
 	$view->with('data', $data);
 });
+
+View::composer('admin_page', function($view){
+	$recentPosts = Post::orderBy('id', 'DESC')->get()->take(10);
+	foreach($recentPosts as $onePost){
+		$data["posts"][] = $onePost;
+	}
+	$view->with('data', $data);
+});
