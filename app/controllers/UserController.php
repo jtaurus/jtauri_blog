@@ -60,14 +60,7 @@ class UserController extends BaseController {
 		if(!Auth::check()){
 			Return Redirect::route('login');
 		}
-		$username = Auth::user();
-		$username = $username["username"];
-		$categoriesList = Category::all();
-		$data["username"] = $username;
-		foreach($categoriesList as $oneCategory){
-			$data["categories"][$oneCategory->id] = $oneCategory->category_name;
-		}
-		Return View::make('article_posting')->with('data', $data);
+		Return View::make('article_posting');
 	}
 
 	public function post_article(){
