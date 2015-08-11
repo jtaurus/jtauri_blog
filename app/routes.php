@@ -89,3 +89,7 @@ Route::get('/admin', ['as' => 'admin_panel', 'uses' => 'AdminController@admin_pa
 // User management in admin panel:
 
 Route::get('/admin/users', ['as' => 'manage_users', 'uses' => 'AdminController@manage_users']);
+
+// Delete users account:
+
+Route::get('/admin/users/ban/{id}', ['as' => 'ban_user', 'uses' => 'AdminController@ban_user']);
