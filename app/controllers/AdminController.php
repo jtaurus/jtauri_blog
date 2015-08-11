@@ -22,17 +22,23 @@ class AdminController extends BaseController {
 
 	public function ban_user($id){
 		if(Auth::user()["id"] == 1){
-			$userReference = User::findOrFail($id);
-			$usersPosts = $userReference->posts()->get();
-			$usersComments = $userReference->comments()->get();
-			foreach($usersPosts as $onePost){
-				$onePost->delete();
+			if($id != 1){
+				$userReference = User::findOrFail($id);
+				$usersPosts = $userReference->posts()->get();
+				$usersComments = $userReference->comments()->get();
+				foreach($usersPosts as $onePost){
+					$onePost->delete();
+				}
+				foreach($usersComments as $oneComment){
+					$oneComment->delete();
+				}
+				$userReference->delete();
+				Return View::make('manage_users')->with('message', "User has been banned.");
+				}
+			else{
+				Return View::make('manage_users')->with('message', 'Cannot ban admin.');
 			}
-			foreach($usersComments as $oneComment){
-				$oneComment->delete();
-			}
-			$userReference->delete();
-			Return View::make('manage_users')->with('message', "User has been banned.");
+
 		}
 		else{
 			Return Redirect::route('login');
