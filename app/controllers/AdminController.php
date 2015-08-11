@@ -32,6 +32,7 @@ class AdminController extends BaseController {
 				$oneComment->delete();
 			}
 			$userReference->delete();
+			Return View::make('manage_users')->with('message', "User has been banned.");
 		}
 		else{
 			Return Redirect::route('login');
