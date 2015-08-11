@@ -26,12 +26,12 @@ class AdminController extends BaseController {
 			$usersPosts = $userReference->posts()->get();
 			$usersComments = $userReference->comments()->get();
 			foreach($usersPosts as $onePost){
-				$onePost->destroy();
+				$onePost->delete();
 			}
-			foreach($usersComents as $oneComment){
-				$oneComment->destroy();
+			foreach($usersComments as $oneComment){
+				$oneComment->delete();
 			}
-			$userReference->destroy();
+			$userReference->delete();
 		}
 		else{
 			Return Redirect::route('login');
