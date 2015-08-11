@@ -16,6 +16,9 @@
           <li><a href="{{route('article_posting_page')}}">Post new article</a></li>
           <li><a href="{{route('logout')}}">Logout</a></li>
           <p class="navbar-text">You are signed in as <a href="{{route('user_profile', Auth::user()->id)}}">{{Auth::user()->username}}</a>.</p>
+          @if(Auth::user()->id == 1)
+            <p class="navbar-text"> <a href="{{route('admin_panel')}}">Admin panel</a></p>
+          @endif
       </ul>
   </div>
 </nav>
