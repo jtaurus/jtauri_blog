@@ -31,12 +31,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 }
 
 	 public function isAdmin(){
-	 	if($this->id == 1){
-	 		return true;
-	 	}
-	 	else{
-	 		return false;
-	 	}
+	 	return $this->admin;
 	 }
 
 }
