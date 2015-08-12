@@ -11,7 +11,7 @@ class UserSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		User::create(array('username' => 'Jakub',
+		User::create(array('username' => 'admin',
 				'email' => 'jakub@jakub.com',
 				'password' => Hash::make('123'),
 				'admin' => true));
