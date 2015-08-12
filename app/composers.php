@@ -51,7 +51,7 @@ View::composer('comment_article', function($view){
 });
 
 View::composer('index_page', function($view){
-	$postsArray = Post::orderBy('id', 'DESC')->paginate(5);
+	$postsArray = Post::where('moderated', '=', true)->orderBy('id', 'DESC')->paginate(5);
 	$sideBarLinks = array();
 	$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
 	$categoryLinks = Category::orderBy('id', 'DESC')->get()->take(5);
