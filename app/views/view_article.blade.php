@@ -3,7 +3,7 @@
 {{{$data["title"]}}}
 @stop
 @section('content')
-@if(Auth::check() && Auth::user()->username == $data["author"])
+@if(Auth::check() && Auth::user()->username == $data["author"] || Auth::user()->isAdmin())
 <div class="text-right"><a href="../edit/{{$data["id"]}}">Edit this article</a> | <a href="../delete/{{$data["id"]}}">Delete</a></div>
 @endif
 <h1>{{{$data["title"]}}}</h1>
