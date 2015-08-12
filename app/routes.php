@@ -93,3 +93,7 @@ Route::get('/admin/users', ['as' => 'manage_users', 'uses' => 'AdminController@m
 // Delete users account:
 
 Route::get('/admin/users/ban/{id}', ['as' => 'ban_user', 'uses' => 'AdminController@ban_user']);
+
+// Make another user an admin:
+
+Route::get('/admin/users/make_admin/{id}', ['as' => 'make_user_an_admin', 'uses' => 'AdminController@make_user_an_admin']);
