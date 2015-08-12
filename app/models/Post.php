@@ -26,4 +26,8 @@ class Post extends Eloquent{
 	public function categories(){
 		return $this->belongsTo('Category', 'category_id');
 	}
+
+	public function isVisible(){
+		return $this->moderated();
+	}
 }
