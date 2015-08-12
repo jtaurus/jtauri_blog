@@ -157,7 +157,7 @@ class UserController extends BaseController {
 	public function delete_article($id){
 		$postInstance = Post::findOrFail($id);
 		$postAuthor = $postInstance->user()->first();
-		if(Auth::user()->username != $postAuthor->username){
+		if(!Auth::user()->isAdmin() && Auth::user()->username != $postAuthor->username){
 			Return Redirect::route('login');
 		}
 		else{
