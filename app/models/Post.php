@@ -28,6 +28,6 @@ class Post extends Eloquent{
 	}
 
 	public function isVisible(){
-		return $this->moderated();
+		return $this->moderated;
 	}
 }
