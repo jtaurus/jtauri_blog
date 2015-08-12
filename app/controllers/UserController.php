@@ -129,7 +129,7 @@ class UserController extends BaseController {
 		}
 		$postInstance = Post::findOrFail($id);
 		$postAuthor = $postInstance->user()->first();
-		if($user->username != $postAuthor["username"]){
+		if(!Auth::user()->isAdmin() && $user->username != $postAuthor["username"]){
 			Return Redirect::route('login');
 		}
 		$data["id"] = $id;
