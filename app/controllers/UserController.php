@@ -175,7 +175,7 @@ class UserController extends BaseController {
 		$commentReference = Comment::findOrFail($comment_id);
 		$commentsAuthor = $commentReference->user()->first();
 		$commentsAuthor = $commentsAuthor;
-		if(Auth::check() && Auth::user()->username == $commentsAuthor->username){
+		if(Auth::check() && Auth::user()->username == $commentsAuthor->username || Auth::user()->isAdmin()){
 			Comment::destroy($comment_id);
 			Return Redirect::to(URL::previous());
 		}
