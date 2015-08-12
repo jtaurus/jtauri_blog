@@ -97,3 +97,7 @@ Route::get('/admin/users/ban/{id}', ['as' => 'ban_user', 'uses' => 'AdminControl
 // Make another user an admin:
 
 Route::get('/admin/users/make_admin/{id}', ['as' => 'make_user_an_admin', 'uses' => 'AdminController@make_user_an_admin']);
+
+// Make admin a normal user:
+
+Route::get('/admin/users/make_normal_user/{id}', ['as' => 'make_admin_normal_user', 'uses' => 'AdminController@make_admin_normal_user');
