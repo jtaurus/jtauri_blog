@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration {
 			$table->integer('category_id');
 			$table->string('title');
 			$table->string('body');
+			$table->boolean('moderated');
 			$table->timestamps();
 		});
 	}
