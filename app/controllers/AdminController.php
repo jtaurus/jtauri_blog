@@ -57,4 +57,16 @@ class AdminController extends BaseController {
 		}
 	}
 
+	public function make_admin_normal_user($id){
+		if(!Auth::check() || !Auth::user()->isAdmin()){
+			Return Redirect::route('login');
+		}
+		else{
+			$userReference = User::findOrFail($id);
+			$userReference->admin = false;
+			$userReference->save();
+			Return Redirect::route('manage_users');
+		}
+	}
+
 }
