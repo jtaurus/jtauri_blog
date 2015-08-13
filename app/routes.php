@@ -105,3 +105,11 @@ Route::get('/admin/users/make_normal_user/{id}', ['as' => 'make_admin_normal_use
 // Accept a post when moderating:
 
 Route::get('/admin/posts/{id}/accept', ['as' => 'accept_a_post', 'uses' => 'AdminController@accept_a_post']);
+
+// Page for changing metadata:
+
+Route::get('/admin/metadata', ['as' => 'admin_metadata', 'uses' => 'AdminController@metadata_page']);
+
+// Page for applying metadata:
+
+Route::post('/admin/metadata', ['uses' => 'AdminController@modify_metadata']);
