@@ -63,7 +63,7 @@ class UserController extends BaseController {
 	}
 
 	public function post_article(){
-		if(!Auth::check()){
+		if(!Auth::check() || !Auth::user()->isAdmin() && !Config::get('blog.user_posting')){
 			Return Redirect::route('login');
 		}
 		$validatorInstance = Validator::make(
