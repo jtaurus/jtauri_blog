@@ -130,7 +130,7 @@ class UserController extends BaseController {
 
 	public function view_edit_article_page($id){
 		$user = Auth::user();
-		if(!Auth::check()){
+		if(!Auth::check() || !Auth::user()->isAdmin() && !Config::get('blog.user_can_edit_posts')){
 			Return Redirect::route('login');
 		}
 		$postInstance = Post::findOrFail($id);
@@ -143,6 +143,9 @@ class UserController extends BaseController {
 	}
 
 	public function apply_edit_article_changes($id){
+		if(!Auth::check() || !Auth::user()->isAdmin() && !Config::get('blog.user_can_edit_posts')){
+			Return Redirect::route('login');
+		}
 		$postInstance = Post::findOrFail($id);
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
