@@ -74,7 +74,12 @@ class UserController extends BaseController {
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
 		$postInstance->category_id = Input::get('categories');
+		if(!Auth::user()->isAdmin()){
 		$postInstance->moderated = false;
+		}
+		else{
+		$postInstance->moderated = true;	
+		}
 		if($validatorInstance->passes()){
 			$postInstance->save();
 			$postId = $postInstance->id;
