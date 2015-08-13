@@ -146,7 +146,7 @@ View::composer('admin_page', function($view){
 		$data["posts"][] = $onePost;
 	}
 	$unmoderatedPosts = Post::where('moderated', '=', false)->orderBY('id', 'DESC')->get()->take(10);
-	foreach($recentPosts as $onePost){
+	foreach($unmoderatedPosts as $onePost){
 		$data["unmoderated"][] = $onePost;
 	}
 	$recentComments = Comment::orderBy('id', 'DESC')->get()->take(10);
