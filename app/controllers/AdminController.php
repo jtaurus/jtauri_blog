@@ -81,4 +81,8 @@ class AdminController extends BaseController {
 		}
 	}
 
+	public function metadata_page(){
+		Return View::make('admin_metadata_page');
+	}
+
 }
