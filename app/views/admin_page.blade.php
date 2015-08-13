@@ -7,7 +7,7 @@ Admin page
 <h3 class="text-left">Unmoderated posts</h3>
 @foreach($data["unmoderated"] as $onePost)
 <p><a href="{{route('view_article', $onePost->id)}}">{{$onePost->title}}</a> by <a href="{{route('user_profile', $onePost->user()->first()->id)}}">{{$onePost->user()->first()->username}}</a> </p> <br />
-@endforach
+@endforeach
 <h3 class="text-left">Recent posts</h3>
 @foreach($data["posts"] as $onePost)
 <p><a href="{{route('view_article', $onePost->id)}}">{{$onePost->title}}</a> by <a href="{{route('user_profile', $onePost->user()->first()->id)}}">{{$onePost->user()->first()->username}}</a> </p> <br />
