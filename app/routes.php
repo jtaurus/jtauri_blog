@@ -60,7 +60,7 @@ Route::post('/article/view/{id}/comment', ['uses' => 'UserController@comment_art
 
 // Deleting comments:
 
-Route::get('/article/view/{article_id}/comment/{comment_id}/delete', ['as' => 'delete_article', 'uses' => 'UserController@delete_comment']);
+Route::get('/article/view/{article_id}/comment/{comment_id}/delete', ['as' => 'delete_comment', 'uses' => 'UserController@delete_comment']);
 
 // Categories page:
 

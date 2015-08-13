@@ -7,7 +7,7 @@ Admin page
 <h3 class="text-left">Unmoderated posts</h3>
 @if(isset($data["unmoderated"]))
 @foreach($data["unmoderated"] as $onePost)
-<p><a href="{{route('view_article', $onePost->id)}}">{{$onePost->title}}</a> by <a href="{{route('user_profile', $onePost->user()->first()->id)}}">{{$onePost->user()->first()->username}}</a> - <a href="{{route('accept_a_post', $onePost->id)}}">Accept a post</a></p> <br />
+<p><a href="{{route('view_article', $onePost->id)}}">{{$onePost->title}}</a> by <a href="{{route('user_profile', $onePost->user()->first()->id)}}">{{$onePost->user()->first()->username}}</a> - <a href="{{route('accept_a_post', $onePost->id)}}">Accept a post</a> | <a href="{{route('delete_article', $onePost->id)}}">Reject</a></p> <br />
 @endforeach
 @endif
 <h3 class="text-left">Recent posts</h3>
