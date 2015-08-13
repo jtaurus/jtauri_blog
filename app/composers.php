@@ -32,6 +32,7 @@ View::composer('view_article', function($view){
 	$categoryInstance = $postInstance->categories()->first();
 	$data["category_id"] = $categoryInstance->id;
 	$data["category_name"] = $categoryInstance->category_name;
+	$data["moderated"] = $postInstance["moderated"];
 	foreach($comments as $oneComment){
 			$postAuthor = $oneComment->user()->first();
 			$moreData = $oneComment;
