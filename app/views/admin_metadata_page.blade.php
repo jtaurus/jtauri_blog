@@ -6,7 +6,13 @@ Admin page - Change metadata
 @if(isset($message))
 {{$message}}
 @endif
-Change title:
+{{Form::open()}}
+<div class="form-group">
+{{Form::label('title', 'Page title');}}
+{{Form::text('title', Config::get('blog.title'), array('class' => 'form-control'));}}
+</div>
+{{Form::submit('Submit', array('class' => 'btn btn-default'));}}
+{{Form::close();}}
 Can user post posts?
 Can user edit posts?
 Post moderation enabled?
