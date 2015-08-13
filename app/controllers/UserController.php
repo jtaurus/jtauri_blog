@@ -56,7 +56,7 @@ class UserController extends BaseController {
 	}
 
 	public function article_posting_page(){
-		if(!Auth::check()){
+		if(!Auth::check() || !Auth::user()->isAdmin() && !Config::get('blog.user_posting')){
 			Return Redirect::route('login');
 		}
 		Return View::make('article_posting');
