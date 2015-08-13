@@ -6,7 +6,7 @@ Admin page
 <h4 class="text-left"><a href="{{route('manage_users')}}">Manage users</a></h4>
 <h3 class="text-left">Unmoderated posts</h3>
 @foreach($data["unmoderated"] as $onePost)
-<p><a href="{{route('view_article', $onePost->id)}}">{{$onePost->title}}</a> by <a href="{{route('user_profile', $onePost->user()->first()->id)}}">{{$onePost->user()->first()->username}}</a> </p> <br />
+<p><a href="{{route('view_article', $onePost->id)}}">{{$onePost->title}}</a> by <a href="{{route('user_profile', $onePost->user()->first()->id)}}">{{$onePost->user()->first()->username}}</a> - <a href="{{route('accept_a_post', $onePost->id)}}">Accept a post</a></p> <br />
 @endforeach
 <h3 class="text-left">Recent posts</h3>
 @foreach($data["posts"] as $onePost)

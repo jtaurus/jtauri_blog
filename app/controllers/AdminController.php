@@ -77,7 +77,7 @@ class AdminController extends BaseController {
 			$postReference = Post::findOrFail($id);
 			$postReference->moderated = true;
 			$postReference->save();
-			Return Redirect::route('admin_page');			
+			Return Redirect::route('admin_panel');			
 		}
 	}
 
