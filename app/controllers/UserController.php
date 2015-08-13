@@ -74,6 +74,7 @@ class UserController extends BaseController {
 		$postInstance->title = Input::get('title');
 		$postInstance->body = Input::get('body');
 		$postInstance->category_id = Input::get('categories');
+		$postInstance->moderated = false;
 		if($validatorInstance->passes()){
 			$postInstance->save();
 			$postId = $postInstance->id;
