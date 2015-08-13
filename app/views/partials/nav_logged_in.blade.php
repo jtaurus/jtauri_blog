@@ -13,7 +13,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <<li class="active"><a href="{{URL::current()}}">Current page <span class="sr-only">(current)</span></a></li>
+        @if(Auth::user()->isAdmin() || Config::get('blog.user_posting'))
           <li><a href="{{route('article_posting_page')}}">Post new article</a></li>
+        @endif
           <li><a href="{{route('logout')}}">Logout</a></li>
           <p class="navbar-text">You are signed in as <a href="{{route('user_profile', Auth::user()->id)}}">{{Auth::user()->username}}</a>.</p>
           @if(Auth::user()->id == 1)
