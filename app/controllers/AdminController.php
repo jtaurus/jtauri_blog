@@ -69,4 +69,16 @@ class AdminController extends BaseController {
 		}
 	}
 
+	public function accept_a_post($id){
+		if(!Auth::check() || !Auth::user()->isAdmin()){
+			Return Redirect::route('login');
+		}
+		else{
+			$postReference = Post::findOrFail($id);
+			$postReference->moderated = true;
+			$postReference->save();
+			Return Redirect::route('admin_page');			
+		}
+	}
+
 }

@@ -101,3 +101,7 @@ Route::get('/admin/users/make_admin/{id}', ['as' => 'make_user_an_admin', 'uses'
 // Make admin a normal user:
 
 Route::get('/admin/users/make_normal_user/{id}', ['as' => 'make_admin_normal_user', 'uses' => 'AdminController@make_admin_normal_user']);
+
+// Accept a post when moderating:
+
+Route::get('/admin/posts/{id}/accept', ['as' => 'accept_a_post', 'uses' => 'AdminController@accept_a_post']);
