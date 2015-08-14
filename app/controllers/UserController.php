@@ -25,10 +25,16 @@ class UserController extends BaseController {
 	}
 
 	public function registration_page(){
+		if(!Config::get('blog.registration_enabled')){
+			Return Redirect::route('home');
+		}
 		Return View::make('registration_page');
 	}
 
 	public function register_user(){
+		if(!Config::get('blog.registration_enabled')){
+			Return Redirect::route('home');
+		}
 		$newUser = new User;
 		$newUser->username = Input::get('username');
 		$newUser->password = Hash::make(Input::get('password'));
