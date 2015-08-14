@@ -85,4 +85,15 @@ class AdminController extends BaseController {
 		Return View::make('admin_metadata_page');
 	}
 
+	public function modify_metadata(){
+		if(!Auth::check() || !Auth::user()->isAdmin()){
+			Return Redirect::route('login');
+		}
+		else{
+			$newTitle = Input::get('title');
+			Config::set('blog.title', $newTitle);
+			Return Redirect::route('admin_metadata');
+		}
+	}
+
 }

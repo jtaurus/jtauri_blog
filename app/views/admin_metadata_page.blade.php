@@ -13,7 +13,4 @@ Admin page - Change metadata
 </div>
 {{Form::submit('Submit', array('class' => 'btn btn-default'));}}
 {{Form::close();}}
-Can user post posts?
-Can user edit posts?
-Post moderation enabled?
 @stop
