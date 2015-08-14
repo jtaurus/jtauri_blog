@@ -2,6 +2,6 @@
 
 class BlogConfig extends Eloquent{
 
-	protected $table = "blog_config";
-	
+	protected $table = "blog_configs";
+
 }

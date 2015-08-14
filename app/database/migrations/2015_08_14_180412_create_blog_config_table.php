@@ -12,7 +12,10 @@ class CreateBlogConfigTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+			Schema::create('blog_configs', function(Blueprint $table){
+			$table->string('name');
+			$table->string('value');
+		});
 	}
 
 	/**
@@ -22,7 +25,7 @@ class CreateBlogConfigTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('blog_configs');
 	}
 
 }
