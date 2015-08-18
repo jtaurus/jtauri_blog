@@ -5,7 +5,7 @@ Comment article
 @section('content')
 <center>
 <div class ="text-left">
-{{$article}}
+{{$article->body}}
 </div>
 <br /><br />
 {{Form::open();}}

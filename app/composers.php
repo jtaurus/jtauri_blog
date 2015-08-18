@@ -26,8 +26,7 @@ View::composer('view_article', function($view){
 View::composer('comment_article', function($view){
 	$id = $view->getData()["id"];
 	$theArticle = Post::findOrFail($id);
-	$theArticleText = $theArticle["body"];
-	$view->with('article', $theArticleText);
+	$view->with('article', $theArticle);
 });
 
 View::composer('index_page', function($view){

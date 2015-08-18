@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b87a6343-ea66-45c8-a90e-98f39f6f46b2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/welcome_page.blade.php" afterPath="$PROJECT_DIR$/app/views/welcome_page.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comment_article.blade.php" afterPath="$PROJECT_DIR$/app/views/comment_article.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/composers.php" afterPath="$PROJECT_DIR$/app/composers.php" />
     </list>
     <ignored path="simple_blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,21 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="composers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/composers.php">
+      <file leaf-file-name="comment_article.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/comment_article.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6153846">
-              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome_page.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/welcome_page.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.040268455">
-              <caret line="2" column="91" selection-start-line="2" selection-start-column="91" selection-end-line="2" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.1409396">
+              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -99,6 +90,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composers.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/composers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.538462">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -121,8 +122,9 @@
         <option value="$PROJECT_DIR$/app/views/partials/nav_logged_out.blade.php" />
         <option value="$PROJECT_DIR$/app/views/partials/nav_logged_in.blade.php" />
         <option value="$PROJECT_DIR$/app/views/view_article.blade.php" />
-        <option value="$PROJECT_DIR$/app/composers.php" />
         <option value="$PROJECT_DIR$/app/views/welcome_page.blade.php" />
+        <option value="$PROJECT_DIR$/app/composers.php" />
+        <option value="$PROJECT_DIR$/app/views/comment_article.blade.php" />
       </list>
     </option>
   </component>
@@ -626,18 +628,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/composers.php">
+    <entry file="file://$PROJECT_DIR$/app/views/welcome_page.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6153846">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        <state vertical-scroll-proportion="-1.3846154">
+          <caret line="2" column="91" selection-start-line="2" selection-start-column="91" selection-end-line="2" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome_page.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/composers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.040268455">
-          <caret line="2" column="91" selection-start-line="2" selection-start-column="91" selection-end-line="2" selection-end-column="91" />
+        <state vertical-scroll-proportion="-14.538462">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/comment_article.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1409396">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding />
         </state>
       </provider>
