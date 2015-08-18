@@ -68,7 +68,6 @@ View::composer('admin_page', function($view){
 });
 
 View::composer('manage_users', function($view){
-	$usersList = User::orderBy('id', 'DESC')->paginate(5);
-	$data["users"] = $usersList;
+	$data["users"] = User::orderBy('id', 'DESC')->paginate(5);
 	$view->with('data', $data);
 });
