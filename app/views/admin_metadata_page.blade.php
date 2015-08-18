@@ -9,7 +9,7 @@ Admin page - Change metadata
 {{Form::open()}}
 <div class="form-group">
 {{Form::label('title', 'Page title');}}
-{{Form::text('title', Config::get('blog.title'), array('class' => 'form-control'));}}
+{{Form::text('title', BlogConfig::getConfigValue('title'), array('class' => 'form-control'));}}
 </div>
 {{Form::submit('Submit', array('class' => 'btn btn-default'));}}
 {{Form::close();}}
