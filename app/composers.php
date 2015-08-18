@@ -61,18 +61,9 @@ View::composer('category_view', function($view){
 });
 
 View::composer('admin_page', function($view){
-	$recentPosts = Post::orderBy('id', 'DESC')->get()->take(10);
-	foreach($recentPosts as $onePost){
-		$data["posts"][] = $onePost;
-	}
-	$unmoderatedPosts = Post::where('moderated', '=', false)->orderBY('id', 'DESC')->get()->take(10);
-	foreach($unmoderatedPosts as $onePost){
-		$data["unmoderated"][] = $onePost;
-	}
-	$recentComments = Comment::orderBy('id', 'DESC')->get()->take(10);
-	foreach($recentComments as $oneComment){
-		$data["comments"][] = $oneComment;
-	}
+	$data["posts"] = Post::orderBy('id', 'DESC')->get()->take(10);
+	$data["unmoderated"] = Post::where('moderated', '=', false)->orderBY('id', 'DESC')->get()->take(10);
+	$data["comments"] = Comment::orderBy('id', 'DESC')->get()->take(10);
 	$view->with('data', $data);
 });
 
