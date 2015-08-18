@@ -13,6 +13,7 @@ class CreateBlogConfigTable extends Migration {
 	public function up()
 	{
 			Schema::create('blog_configs', function(Blueprint $table){
+			$table->increments('id');
 			$table->string('name');
 			$table->string('value');
 			$table->timestamps();
