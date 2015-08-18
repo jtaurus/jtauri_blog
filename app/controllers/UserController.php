@@ -127,6 +127,7 @@ class UserController extends BaseController {
 	}
 
 	public function index_page(){
+		dd(BlogConfig::getConfigValue(('title')));
 		Return View::make('index_page');
 	}
 
