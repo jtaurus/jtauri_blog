@@ -4,7 +4,7 @@
 @stop
 @section('content')
 @if(Auth::check() && Auth::user()->username == $data["author"] || Auth::check() && Auth::user()->isAdmin())
-@if(Config::get('blog.user_can_edit_posts'))
+@if(BlogConfig::getConfigValue('user_can_edit_posts'))
 <div class="text-right"><a href="../edit/{{$data["id"]}}">Edit this article</a> | <a href="../delete/{{$data["id"]}}">Delete</a></div>
 @endif
 @endif
