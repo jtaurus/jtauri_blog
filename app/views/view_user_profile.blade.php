@@ -1,16 +1,16 @@
 @extends('master_layout')
 @section('title')
-{{{$data["username"]}}} user profile
+{{{$data["user"]->username}}} user profile
 @stop
 @section('content')
-Username: {{{$data["username"]}}}<br />
-E-mail: {{{$data["email"]}}}<br />
-Registration date: {{{$data["registration_date"]}}}<br />
+Username: {{{$data["user"]->username}}}<br />
+E-mail: {{{$data["user"]->email}}}<br />
+Registration date: {{{$data["user"]->created_at}}}<br />
 <h1>Latest posts:</h1><br />
 @if(count($data["posts"]) > 0)
 	@foreach($data["posts"] as $onePost)
-		<div class ="text-left"><h3><a href="{{route('view_article', $onePost["id"]);}}">{{{$onePost["title"]}}}</a></h3> on {{{$onePost["post_date"]}}}</div> <br />
-		<div class ="text-left">{{$onePost["body"]}}</div> <br /></center>
+		<div class ="text-left"><h3><a href="{{route('view_article', $onePost->id);}}">{{{$onePost->title}}}</a></h3> on {{{$onePost->created_at}}}</div> <br />
+		<div class ="text-left">{{$onePost->body}}</div> <br /></center>
 	@endforeach
 @else
 	No posts to show.
@@ -19,8 +19,8 @@ Registration date: {{{$data["registration_date"]}}}<br />
 	<center>
 @if(count($data["comments"]) > 0)
 	@foreach($data["comments"] as $oneComment)
-		<div class ="text-left"><h3><a href="{{route('view_article', $oneComment["commented_post_id"]);}}">{{{$oneComment["commented_post_title"]}}}</a></h3> on {{{$oneComment["comment_post_date"]}}}</div> <br />
-			<div class ="text-left">{{{$oneComment["body"]}}}</div>
+		<div class ="text-left"><h3><a href="{{route('view_article', $oneComment->post()->first()->id);}}">{{{$oneComment->post()->first()->title}}}</a></h3> on {{{$oneComment->post()->first()->created_at}}}</div> <br />
+			<div class ="text-left">{{{$oneComment->body_comment}}}</div>
 	@endforeach
 @else
 	No comments to show.

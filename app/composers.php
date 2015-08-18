@@ -38,32 +38,9 @@ View::composer('index_page', function($view){
 
 View::composer('view_user_profile', function($view){
 	$id = $view->getData()["id"];
-	$userReference = User::findOrFail($id);
-	$data["username"] = $userReference->username;
-	$data["email"] = $userReference->email;
-	$data["registration_date"] = $userReference->created_at;
-	// find users posts:
-	$userPostsAll = $userReference->posts()->get();
-	$userCommentsAll = $userReference->comments()->get();
-	$data["posts"] = [];
-	$data["comments"] = [];
-	$counter = 0;
-	foreach($userPostsAll as $onePost){
-			$data["posts"][$counter]["id"] = $onePost->id;
-			$data["posts"][$counter]["title"] = $onePost->title;
-			$data["posts"][$counter]["body"] = $onePost->body;
-			$data["posts"][$counter]["post_date"] = $onePost->created_at;
-			$counter += 1;
-	}
-	$counter = 0;
-	foreach($userCommentsAll as $oneComment){
-			$commentedPostReference = $oneComment->post()->first();
-			$data["comments"][$counter]["body"] = $oneComment->body_comment;
-			$data["comments"][$counter]["comment_post_date"] = $oneComment->created_at;
-			$data["comments"][$counter]["commented_post_id"] = $commentedPostReference->id;
-			$data["comments"][$counter]["commented_post_title"] = $commentedPostReference->title;
-			$counter += 1;
-	}
+	$data["user"] = User::findOrFail($id);
+	$data["posts"] = $data["user"]->posts()->get();
+	$data["comments"] = $data["user"]->comments()->get();
 	$view->with('data', $data);
 });
 
