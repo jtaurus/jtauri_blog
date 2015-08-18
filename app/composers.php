@@ -49,9 +49,7 @@ View::composer('article_edit', function($view){
 	if(isset($view->getData()["data"]["message"])){
 		$data["message"] = $view->getData()["data"]["message"];
 	}
-	$postInstance = Post::findOrFail($id);
-	$data["post_body"] = $postInstance->body;
-	$data["post_title"] = $postInstance->title;
+    $data["post"] = Post::findOrFail($id);
 	$view->with('data', $data);
 });
 
