@@ -8,14 +8,10 @@ class UserController extends BaseController {
 	}
 
 	public function validate_login(){
-		
-		// if logged in with valid credentials, authorize and redirect to main page:
 
 		$enteredUsername = Request::input('username');
 		$enteredPassword = Request::input('password');
 		if(Auth::attempt(array('username' => $enteredUsername, 'password' => $enteredPassword))){
-			//Return View::make('user_profile')->with('user', Auth::user());
-			//return Redirect::to('/user/welcome_page');
 			return Redirect::to(Session::get('intended_url'));
 		}
 		// If unable to log in with valid credentials, send message about wrong authorization attempt:
@@ -42,8 +38,6 @@ class UserController extends BaseController {
 		$newUser->save();
 		Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
 		return Redirect::route('welcome_page');
-		// otherwise show message about improper data
-
 	}
 
 	public function welcome_page(){
@@ -58,7 +52,6 @@ class UserController extends BaseController {
 	public function logout(){
 		Auth::logout();
 		Return Redirect::to(URL::previous());
-		//Return View::make('logout')->with('data', URL::previous());
 	}
 
 	public function article_posting_page(){
@@ -94,8 +87,6 @@ class UserController extends BaseController {
 		else{
 			Return View::make('article_posting')->with('message', "Please fill out every field properly.");
 		}
-
-		// After posting, redirect user to the article page
 	}
 
 	public function view_article($id){
