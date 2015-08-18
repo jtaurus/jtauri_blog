@@ -62,14 +62,14 @@ class UserController extends BaseController {
 	}
 
 	public function article_posting_page(){
-		if(!Auth::check() || !Auth::user()->isAdmin() && !Config::get('blog.user_posting')){
+		if(!Auth::check() || !Auth::user()->isAdmin() && !BlogConfig::getConfigValue('user_posting_enabled')){
 			Return Redirect::route('login');
 		}
 		Return View::make('article_posting');
 	}
 
 	public function post_article(){
-		if(!Auth::check() || !Auth::user()->isAdmin() && !Config::get('blog.user_posting')){
+		if(!Auth::check() || !Auth::user()->isAdmin() && !BlogConfig::getConfigValue('user_posting_enabled')){
 			Return Redirect::route('login');
 		}
 		$validatorInstance = Validator::make(
