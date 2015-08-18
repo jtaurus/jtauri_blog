@@ -55,17 +55,8 @@ View::composer('article_edit', function($view){
 
 View::composer('category_view', function($view){
 	$id = $view->getData()["id"];
-	$categoryReference = Category::findOrFail($id);
-	$data["category_name"] = $categoryReference->category_name;
-	$postsArray = $categoryReference->post()->paginate(5);
-	$counter = 0;
-	foreach($postsArray as $onePost){
-			$authorReference = $onePost->user()->first();
-			$postsArray[$counter]["author"] = $authorReference->username;
-			$postsArray[$counter]["author_id"] = $authorReference->id;
-			$counter += 1;
-	}
-	$data["posts"] = $postsArray;
+	$data["category"] = Category::findOrFail($id);
+	$data["posts"] = $data["category"]->post()->paginate(5);
 	$view->with('data', $data);
 });
 
