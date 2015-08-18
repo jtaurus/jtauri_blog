@@ -31,33 +31,11 @@ View::composer('comment_article', function($view){
 
 View::composer('index_page', function($view){
 	$postsArray = Post::where('moderated', '=', true)->orderBy('id', 'DESC')->paginate(5);
-	$sideBarLinks = array();
 	$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
 	$categoryLinks = Category::orderBy('id', 'DESC')->get()->take(5);
-	$counter = 0;
-	foreach($categoryLinks as $oneCategory){
-			$categoryLinksArray[$counter]["id"] = $oneCategory->id;
-			$categoryLinksArray[$counter]["name"] = $oneCategory->category_name;
-			$counter += 1;
-	}
-	$counter = 0;
-	foreach($sidebarLinks as $oneLink){
-			$sideBarLinks[$counter]["title"] = $oneLink->title;
-			$sideBarLinks[$counter]["id"] = $oneLink->id;
-			$counter += 1;
-	}
-	$counter = 0;
-	foreach($postsArray as $onePost){
-			$userReference = $onePost->user()->first();
-			$postsArray[$counter]["author"] = $userReference->username;
-			$postsArray[$counter]["author_id"] = $userReference->id;
-			$counter += 1;
-	}
-	// pass whether the user is logged in or not:
-	$data["isLoggedIn"] = Auth::check();
 	$data["posts"] = $postsArray;
-	$data["sidebar_links"] = $sideBarLinks;
-	$data["category_links"] = $categoryLinksArray;
+	$data["sidebar_links"] = $sidebarLinks;
+	$data["category_links"] = $categoryLinks;
 	$view->with('data', $data);
 });
 

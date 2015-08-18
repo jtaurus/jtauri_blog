@@ -9,7 +9,7 @@ Blog
 		<center><h3>Latest posts:</h3></center>
 		<ul>
 		@foreach($data["sidebar_links"] as $oneLink)
-			<li class="text-left"><a href="./article/view/{{{$oneLink["id"]}}}">{{{$oneLink["title"]}}}</a> </li>
+			<li class="text-left"><a href="./article/view/{{{$oneLink->id}}}">{{{$oneLink->title}}}</a> </li>
 		@endforeach
 		</ul>
 	</div>
@@ -17,7 +17,7 @@ Blog
 		<center><h3>Categories:</h3></center>
 		<ul>
 			@foreach($data["category_links"] as $oneLink)
-			<li class="text-left"><a href="{{route('category_page', $oneLink["id"])}}">{{$oneLink["name"]}}</a></li>
+			<li class="text-left"><a href="{{route('category_page', $oneLink->id)}}">{{$oneLink->category_name}}</a></li>
 			@endforeach
 		</ul>
 	</div>
@@ -27,10 +27,10 @@ Blog
 		<div>
 	@foreach($data["posts"] as $onePost)
 	<div class="page-header">
-  	<h1 class="text-left"><a href="./article/view/{{{$onePost["id"]}}}">{{{$onePost["title"]}}}</a> </h1>
-  	<br /><h3 class="text-right"><small>by: <a href="./user/{{{$onePost["author_id"]}}}/view_profile">{{{$onePost["author"]}}}</a></small></h3>
+  	<h1 class="text-left"><a href="./article/view/{{{$onePost->id}}}">{{{$onePost->title}}}</a> </h1>
+  	<br /><h3 class="text-right"><small>by: <a href="./user/{{{$onePost->user()->first()->id}}}/view_profile">{{{$onePost->user()->first()->username}}}</a></small></h3>
 	</div>
-		<div class="text-left">{{$onePost["body"]}}</div>
+		<div class="text-left">{{$onePost->body}}</div>
 	@endforeach
 		</div>
 	</div>
