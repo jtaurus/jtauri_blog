@@ -17,24 +17,11 @@ View::composer('welcome_page', function($view){
 
 View::composer('view_article', function($view){
 	$id = $view->getData()["id"];
-	// fetch the article and display it
-	$postInstance = Post::findOrFail($id);
-	// fetch the comments
-	$comments = $postInstance->comments()->paginate(10);
-	$authorOfThePost = $postInstance->user()->first();
-	$categoryInstance = $postInstance->categories()->first();
-	foreach($comments as $oneComment){
-			$postAuthor = $oneComment->user()->first();
-			$moreData = $oneComment;
-			$moreData["author"] = $postAuthor["username"];
-			$moreData["author_id"] = $postAuthor["id"];
-			$data["detailed_comments"][] = $moreData;
-		}
-	$data["post"] = $postInstance;
-	$data["author"] = $authorOfThePost;
-	$data["category"] = $categoryInstance;
-	$data["comments"] = $comments;
-	$data["pagination_links"] = $comments->links();
+	$data["post"] = Post::findOrFail($id);
+	$data["author"] = $data["post"]->user()->first();
+	$data["category"] = $data["post"]->categories()->first();
+	$data["comments"] = $data["post"]->comments()->paginate(10);
+	$data["pagination_links"] = $data["post"]->comments()->paginate(10)->links();
 	$view->with('data', $data);
 });
 
