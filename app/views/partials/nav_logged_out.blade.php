@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{URL::current()}}">Current page <span class="sr-only">(current)</span></a></li>
           <li><a href="{{route('login')}}">Login</a></li>
-          @if(Config::get('blog.registration_enabled'))
+          @if(BlogConfig::getConfigValue('registration_enabled'))
           <li><a href="{{route('registration')}}">Sign-up</a></li>
           @endif
       </ul>

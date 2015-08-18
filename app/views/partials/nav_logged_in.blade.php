@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <<li class="active"><a href="{{URL::current()}}">Current page <span class="sr-only">(current)</span></a></li>
-        @if(Auth::user()->isAdmin() || Config::get('blog.user_posting'))
+        @if(Auth::user()->isAdmin() || BlogConfig::getConfigValue('user_posting_enabled'))
           <li><a href="{{route('article_posting_page')}}">Post new article</a></li>
         @endif
           <li><a href="{{route('logout')}}">Logout</a></li>
