@@ -21,18 +21,8 @@ View::composer('view_article', function($view){
 	$postInstance = Post::findOrFail($id);
 	// fetch the comments
 	$comments = $postInstance->comments()->paginate(10);
-	$data["title"] = $postInstance["title"];
-	$data["body"] = $postInstance["body"];
 	$authorOfThePost = $postInstance->user()->first();
-	$data["author"] = $authorOfThePost["username"];
-	$data["author_id"] = $authorOfThePost["id"];
-	$data["comments"] = $comments;
-	$data["detailed_comments"] = array();
-	$data["id"] = $postInstance["id"];
 	$categoryInstance = $postInstance->categories()->first();
-	$data["category_id"] = $categoryInstance->id;
-	$data["category_name"] = $categoryInstance->category_name;
-	$data["moderated"] = $postInstance["moderated"];
 	foreach($comments as $oneComment){
 			$postAuthor = $oneComment->user()->first();
 			$moreData = $oneComment;
@@ -40,6 +30,10 @@ View::composer('view_article', function($view){
 			$moreData["author_id"] = $postAuthor["id"];
 			$data["detailed_comments"][] = $moreData;
 		}
+	$data["post"] = $postInstance;
+	$data["author"] = $authorOfThePost;
+	$data["category"] = $categoryInstance;
+	$data["comments"] = $comments;
 	$data["pagination_links"] = $comments->links();
 	$view->with('data', $data);
 });
