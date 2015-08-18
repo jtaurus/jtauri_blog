@@ -30,12 +30,9 @@ View::composer('comment_article', function($view){
 });
 
 View::composer('index_page', function($view){
-	$postsArray = Post::where('moderated', '=', true)->orderBy('id', 'DESC')->paginate(5);
-	$sidebarLinks = Post::orderBy('id', 'DESC')->get()->take(10);
-	$categoryLinks = Category::orderBy('id', 'DESC')->get()->take(5);
-	$data["posts"] = $postsArray;
-	$data["sidebar_links"] = $sidebarLinks;
-	$data["category_links"] = $categoryLinks;
+	$data["posts"] = Post::where('moderated', '=', true)->orderBy('id', 'DESC')->paginate(5);
+	$data["sidebar_links"] = Post::orderBy('id', 'DESC')->get()->take(10);
+	$data["category_links"] = Category::orderBy('id', 'DESC')->get()->take(5);
 	$view->with('data', $data);
 });
 
