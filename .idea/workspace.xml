@@ -47,8 +47,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66589594">
-              <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
+            <state vertical-scroll-proportion="0.58265895">
+              <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -420,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66589594">
-          <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
+        <state vertical-scroll-proportion="0.58265895">
+          <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
           <folding />
         </state>
       </provider>
