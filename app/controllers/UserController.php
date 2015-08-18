@@ -25,14 +25,14 @@ class UserController extends BaseController {
 	}
 
 	public function registration_page(){
-		if(!Config::get('blog.registration_enabled')){
+		if(!BlogConfig::getConfigValue('registration_enabled')){
 			Return Redirect::route('home');
 		}
 		Return View::make('registration_page');
 	}
 
 	public function register_user(){
-		if(!Config::get('blog.registration_enabled')){
+		if(!BlogConfig::getConfigValue('registration_enabled')){
 			Return Redirect::route('home');
 		}
 		$newUser = new User;
@@ -127,7 +127,6 @@ class UserController extends BaseController {
 	}
 
 	public function index_page(){
-		dd(BlogConfig::getConfigValue(('title')));
 		Return View::make('index_page');
 	}
 
